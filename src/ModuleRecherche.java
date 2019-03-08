@@ -4,6 +4,7 @@ public class ModuleRecherche {
             "recherches par categorie(s), par expression dans le titre, par auteur, et par\n" +
             "periode de publication.";
     public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
+    public static final String MSG_FIN = "FIN DU PROGRAMME. AU REVOIR!";
 
     //affiche le menu principal
     public static void afficherMenu(){
@@ -33,5 +34,32 @@ public class ModuleRecherche {
             }
         }while(!boolChoix);
         return choix;
+    }
+    //va chercher le fichier bibliotheque
+    public static String appelleBiblio(){
+        String biblio = UtilitaireTP2.lireBibliotheque();
+        return biblio;
+    }
+
+    public static String findCategorie(){
+        String categorie = "";
+        String biblio = appelleBiblio();
+        int index = 0;
+        int index2 = 0;
+
+        for(int i = 0; i < 4; i++){
+            index = biblio.indexOf('\t', index);
+            index++;
+            System.out.println(index);
+        }
+
+        System.out.println(biblio.substring(index));
+
+        return categorie;
+    }
+
+    public static String recherche(String option){
+
+        return option;
     }
 }
