@@ -5,6 +5,7 @@ public class ModuleRecherche {
             "periode de publication.";
     public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
 
+    //affiche le menu principal
     public static void afficherMenu(){
         System.out.print("-----------------\n"
         + "MENU DE RECHERCHE\n"
@@ -18,6 +19,7 @@ public class ModuleRecherche {
         + "Entrez votre choix :");
     }
 
+    //prends et valide le choix de l'utilisateur
     public static String validerChoix(){
         boolean boolChoix;
         String choix;
