@@ -41,9 +41,8 @@ public class ModuleRecherche {
         return biblio;
     }
 
-    public static String findCategorie(){
+    public static String findCategorie(String biblio){
         String categorie = "";
-        String biblio = appelleBiblio();
         int index = 0;
         int index2 = 0;
 
