@@ -4,7 +4,7 @@ public class Main {
         String biblio = UtilitaireTP2.lireBibliotheque();
         String test = "policier";
 
-        System.out.println(ModuleRecherche.recherche(biblio, "policier"));
+        ModuleRecherche.valideEntreeString("Veuillez choisir entre 1 a 4: ", "Erreur! Choix invalide", "1", "4");
 
     }
 
