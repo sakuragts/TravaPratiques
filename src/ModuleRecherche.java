@@ -65,7 +65,7 @@ public class ModuleRecherche {
             if(choix.length() != 1){
                 System.out.println(msgErr);
                 boolChoix = false;
-            }else if (choix == null || choix.isEmpty() ||
+            }else if (choix == null ||
                     choix.charAt(0) < min || choix.charAt(0) > max){
                 System.out.println(msgErr);
                 boolChoix = false;
