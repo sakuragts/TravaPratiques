@@ -56,13 +56,17 @@ public class ModuleRecherche {
 
     //prends et valide le choix de l'utilisateur
    public static String validerChoix(String msgMenu, String msgErr, char min, char max){
-        boolean boolChoix = true;
+        boolean boolChoix;
         String choix;
         do{
+            boolChoix = true;
             System.out.print(msgMenu);
             choix = Clavier.lireString();
-            if((choix == null || choix.isEmpty() ||
-                    choix.charAt(0) < min || choix.charAt(0) > max) && !(choix.length() == 1) ) {
+            if(choix.length() != 1){
+                System.out.println(msgErr);
+                boolChoix = false;
+            }else if (choix == null || choix.isEmpty() ||
+                    choix.charAt(0) < min || choix.charAt(0) > max){
                 System.out.println(msgErr);
                 boolChoix = false;
             }
