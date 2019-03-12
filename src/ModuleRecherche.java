@@ -25,37 +25,10 @@ public class ModuleRecherche {
     public static final String MSG_ENTREE = "Tapez <ENTREE> pour revenir au menu de rechercheEntree... ";
 
 
-    //affiche un menu et valide le choix de l'utilisateur
-    /*public static String valideEntreeString(String msgMenu, String msgErr, String min, String max) {
-        String entree;
-        int intEntree;
-        int intMin;
-        int intMax;
-        boolean estInvalide = true;
 
-        do {
-            System.out.print(msgMenu);
-            entree = Clavier.lireString();
-            if (entree != null && !entree.isEmpty()) {
-                if(entree.length() < 1 && entree.charAt(0) > '1' && entree.charAt(0) < '9') {
-                    intEntree = Integer.parseInt(entree);
-                    intMin = Integer.parseInt(min);
-                    intMax = Integer.parseInt(max);
-                    if (intEntree < intMin && intEntree > intMax) {
-                        System.out.println(msgErr);
-                    } else {
-                        estInvalide = false;
-                    }
-                }
-            }else{
-                System.out.println(msgErr);
-            }
-        }while(estInvalide);
-        return entree;
-    }*/
 
     //prends et valide le choix de l'utilisateur
-   public static String validerChoix(String msgMenu, String msgErr, char min, char max){
+   public static String validerChoix(String msgMenu, String msgErr, char min, char max) {
         boolean boolChoix;
         String choix;
         do{
@@ -66,7 +39,7 @@ public class ModuleRecherche {
                 System.out.println(msgErr);
                 boolChoix = false;
             }else if (choix == null ||
-                    choix.charAt(0) < min || choix.charAt(0) > max){
+                    choix.charAt(0) < min || choix.charAt(0) > max) {
                 System.out.println(msgErr);
                 boolChoix = false;
             }
@@ -74,21 +47,55 @@ public class ModuleRecherche {
         return choix;
     }
 
+    /*Prends en parametre une ligne du resultat de la recherche et le
+    formatte selon la convention donnee*/
+    public static String formatLivre(String resultatSubString) {
+        int indexTab;
+        int indexParenthese;
+        String formateSubString;
+        String subStringAnnee;
 
-    /*Prends en parametre une ligne du document de references et l'entree recherchee. L'entree recherchee est comparee
-    a chaque bloc separe par un espace tab pour trouver s'il est contenu dans la ligne visee*/
+        indexTab = resultatSubString.indexOf('\t');
+        indexTab = resultatSubString.indexOf('\t', indexTab + 1);
+        formateSubString = "- " + resultatSubString.substring(0, indexTab).toUpperCase() + " (";
+        indexTab = resultatSubString.indexOf('\t', indexTab + 1);
+        formateSubString += resultatSubString.substring(indexTab - 4, indexTab) + "), [ " +
+            resultatSubString.substring(indexTab + 1).replace('\t', ',').toLowerCase() + " ]";
+        formateSubString = formatePlaceAnnee(formateSubString);
+
+        return formateSubString;
+    }
+
+    public static String formatePlaceAnnee(String formateSubString) {
+        String subStringAnnee;
+        String formateSubStringPlaceAnnee;
+        int indexParenthese;
+        int indexTab;
+
+        indexTab = formateSubString.indexOf('\t');
+        indexParenthese = formateSubString.indexOf('(');
+        subStringAnnee = formateSubString.substring(indexParenthese, indexParenthese + 7);
+        formateSubStringPlaceAnnee = formateSubString.substring(0, indexTab)+ " " + subStringAnnee + " " +  formateSubString.substring(indexTab + 1, formateSubString.indexOf('(')) + formateSubString.substring(formateSubString.indexOf('['));
+        return formateSubStringPlaceAnnee;
+    }
+
+
+
+    /*Prends en parametre une ligne du document de references et l'entree recherchee. L'entree
+    recherchee est comparee a chaque bloc separe par un espace tab pour trouver s'il est
+    contenu dans la ligne visee*/
     public static boolean compareOption(String subString, String entree) {
         String compareOption;
         boolean compare = false;
         int index;
-        for(int i = 0; i < subString.length(); i = index){
+        for(int i = 0; i < subString.length(); i = index) {
             index = subString.indexOf('\t', i + 1);
             if(index < 0){
                 index = subString.length();
             }
             compareOption = subString.substring(i, index);
             compareOption = compareOption.trim();
-            if(compareOption.contains(entree) || compareOption.compareToIgnoreCase(entree) == 0){
+            if(compareOption.contains(entree) || compareOption.compareToIgnoreCase(entree) == 0) {
                 compare = true;
             }
         }
@@ -112,7 +119,7 @@ public class ModuleRecherche {
                     resultatRecherche += rechercheSub + '\n';
                 }
                 indexFin++;
-            }else{
+            }else {
                 indexFin = biblio.length();
             }
 
