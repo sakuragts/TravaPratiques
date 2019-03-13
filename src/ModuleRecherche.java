@@ -11,39 +11,48 @@
  */
 
 public class ModuleRecherche {
-    public static final String MENU_PRINCIPAL = "-----------------\n"
-            + "MENU DE RECHERCHE\n"
-            + "-----------------\n"
-            + "1. Recherche par categorie(s)\n"
-            + "2. Recherche par titre\n"
-            + "3. Recherche par auteur\n"
-            + "4. Recherche par periode\n"
-            + "5. Quitter\n"
-            + "\n"
-            + "Entrez votre choix : ";
-    public static final String MENU_CATEGORIES = "LISTE DES CATEGORIES : \n"
-            + "1. Science fiction\n"
-            + "2. Romance\n"
-            + "3. Thriller\n"
-            + "4. Policier\n"
-            + "5. Humour\n"
-            + "6. Drame"
-            + "\n"
-            + "Entrez un numero de categories (0 pour terminer) : ";
+    public static final String MENU_PRINCIPAL = "-----------------\n" +
+            "MENU DE RECHERCHE\n" +
+            "-----------------\n" +
+            "1. Recherche par categorie(s)\n" +
+            "2. Recherche par titre\n" +
+            "3. Recherche par auteur\n" +
+            "4. Recherche par periode\n" +
+            "5. Quitter\n" +
+            "\n" +
+            "Entrez votre choix : ";
+    public static final String MENU_CATEGORIES = "LISTE DES CATEGORIES : \n" +
+            "1. Science fiction\n"+
+            "2. Romance\n" +
+            "3. Thriller\n" +
+            "4. Policier\n" +
+            "5. Humour\n" +
+            "6. Drame" +
+            "\n" +
+            "Entrez un numero de categories (0 pour terminer) : ";
     public static final String MSG_DEBUT = "Cette application permet d'executer diverses requetes pour rechercher des livres\n" +
             "dans une bibliotheque donnee. Elle permet plus particulierement de faire des\n" +
             "recherches par categorie(s), par expression dans le titre, par auteur, et par\n" +
             "periode de publication.";
     public static final String MSG_FIN = "FIN DU PROGRAMME. AU REVOIR!";
-    public static final String MSG_ENTREE = "Tapez <ENTREE> pour revenir au menu de rechercheEntree... ";
+    public static final String MSG_ENTREE = "Tapez <ENTREE> pour revenir au menu de recherche... ";
     public static final String MSG_CATEGORIES = "*** RECHERCHE PAR CATEGORIE(S) ***"
             + "Recherche par (C)onjonction ou (D)isjonction : ";
+    public static final String MSG_TITRE = "*** RECHERCHE PAR TITRE ***\n" +
+            "\n" +
+            "Entrez le titre ou une partie du titre (<ENTREE> pour terminer) : ";
+    public static final String MSG_ANNULEE = "RECHERCHE ANNULEE.";
+    public static final String MSG_AUTEUR = "*** RECHERCHE PAR AUTEUR ***\n" +
+            "\n" +
+            "Entrez le nom de l'auteur (<ENTREE> pour terminer) : ";
+    public static final String MSG_PERIODE = "*** RECHERCHE PAR PERIODE ***\n" +
+            "\n" +
+            "Entrez l'annee du debut de la periode (0 pour terminer) : ";
+    public static final String MSG_RESULTAT = "RESULTAT(S) DE RECHERCHE :\n"
+            + "--------------------------";
     public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
+    public static final String ERR_CATEGORIES = "Erreur, numero de categorie invalide! Recommencez...";
     public static final String ERR_PAS_TROUVE = "AUCUN LIVRE TROUVE.";
-
-
-
-
 
     //prends et valide le choix de l'utilisateur
    public static String validerChoix(String msgMenu, String msgErr, char min, char max) {
@@ -108,6 +117,8 @@ public class ModuleRecherche {
     /*Prends en parametre une ligne du document de references et l'entree recherchee. L'entree
     recherchee est comparee a chaque bloc separe par un espace tab pour trouver s'il est
     contenu dans la ligne visee*/
+
+    //recherche partiel. p-e utiliser un while?
     public static boolean compareOption(String subString, String entree) {
         String compareOption;
         boolean compare = false;
@@ -126,8 +137,10 @@ public class ModuleRecherche {
         return compare;
     }
 
-    /*Prends en paramettre le document de reference bibliotheque et l'entree recherchee. L'entree est recherchee
-    a travers le document de reference*/
+    /*Prends en paramettre le document de reference bibliotheque et l'entree
+    recherchee. L'entree est recherchee a travers le document de reference*/
+
+    //p-e utiliser cette methode pour separer le texte par ligne?
     public static String rechercheEntree(String biblio, String entree) {
         String resultatRecherche = "";
         String rechercheSub;
