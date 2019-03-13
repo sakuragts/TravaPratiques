@@ -1,11 +1,17 @@
-
-
-
-
-
+/**
+ * I N F 1 1 2 0
+ *
+ * Decrivez votre classe LaboBoucles2B ici.
+ *
+ * @author Ingrid Blemur
+ * @version 13/03/2019
+ *
+ * BLEI08547903
+ * blemur.ingrid@courrier.uqam.ca
+ */
 
 public class ModuleRecherche {
-    public static final String menuPrincipal = "-----------------\n"
+    public static final String MENU_PRINCIPAL = "-----------------\n"
             + "MENU DE RECHERCHE\n"
             + "-----------------\n"
             + "1. Recherche par categorie(s)\n"
@@ -15,14 +21,26 @@ public class ModuleRecherche {
             + "5. Quitter\n"
             + "\n"
             + "Entrez votre choix : ";
+    public static final String MENU_CATEGORIES = "LISTE DES CATEGORIES : \n"
+            + "1. Science fiction\n"
+            + "2. Romance\n"
+            + "3. Thriller\n"
+            + "4. Policier\n"
+            + "5. Humour\n"
+            + "6. Drame"
+            + "\n"
+            + "Entrez un numero de categories (0 pour terminer) : ";
     public static final String MSG_DEBUT = "Cette application permet d'executer diverses requetes pour rechercher des livres\n" +
             "dans une bibliotheque donnee. Elle permet plus particulierement de faire des\n" +
             "recherches par categorie(s), par expression dans le titre, par auteur, et par\n" +
             "periode de publication.";
-    public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
     public static final String MSG_FIN = "FIN DU PROGRAMME. AU REVOIR!";
-    public static final String ERR_PAS_TROUVE = "AUCUN LIVRE TROUVE.";
     public static final String MSG_ENTREE = "Tapez <ENTREE> pour revenir au menu de rechercheEntree... ";
+    public static final String MSG_CATEGORIES = "*** RECHERCHE PAR CATEGORIE(S) ***"
+            + "Recherche par (C)onjonction ou (D)isjonction : ";
+    public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
+    public static final String ERR_PAS_TROUVE = "AUCUN LIVRE TROUVE.";
+
 
 
 
@@ -51,15 +69,16 @@ public class ModuleRecherche {
     formatte selon la convention donnee*/
     public static String formatLivre(String resultatSubString) {
         int indexTab;
-        int indexParenthese;
         String formateSubString;
-        String subStringAnnee;
 
         indexTab = resultatSubString.indexOf('\t');
         indexTab = resultatSubString.indexOf('\t', indexTab + 1);
-        formateSubString = "- " + resultatSubString.substring(0, indexTab).toUpperCase() + " (";
+        formateSubString = "- "
+                + resultatSubString.substring(0, indexTab).toUpperCase()
+                + " (";
         indexTab = resultatSubString.indexOf('\t', indexTab + 1);
-        formateSubString += resultatSubString.substring(indexTab - 4, indexTab) + "), [ " +
+        formateSubString += resultatSubString.substring(indexTab - 4, indexTab)
+                + "), [ " +
             resultatSubString.substring(indexTab + 1).replace('\t', ',').toLowerCase() + " ]";
         formateSubString = formatePlaceAnnee(formateSubString);
 
@@ -74,8 +93,13 @@ public class ModuleRecherche {
 
         indexTab = formateSubString.indexOf('\t');
         indexParenthese = formateSubString.indexOf('(');
-        subStringAnnee = formateSubString.substring(indexParenthese, indexParenthese + 7);
-        formateSubStringPlaceAnnee = formateSubString.substring(0, indexTab)+ " " + subStringAnnee + " " +  formateSubString.substring(indexTab + 1, formateSubString.indexOf('(')) + formateSubString.substring(formateSubString.indexOf('['));
+        subStringAnnee = formateSubString.substring(indexParenthese,
+                indexParenthese + 7);
+        formateSubStringPlaceAnnee = formateSubString.substring(0, indexTab)
+                + " " + subStringAnnee + " " +
+                formateSubString.substring(indexTab + 1,
+                        formateSubString.indexOf('('))
+                + formateSubString.substring(formateSubString.indexOf('['));
         return formateSubStringPlaceAnnee;
     }
 
