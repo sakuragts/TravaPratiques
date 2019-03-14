@@ -27,9 +27,9 @@ public class ModuleRecherche {
             "3. Thriller\n" +
             "4. Policier\n" +
             "5. Humour\n" +
-            "6. Drame" +
-            "\n" +
-            "Entrez un numero de categories (0 pour terminer) : ";
+            "6. Drame\n" +
+            "\n";
+    public static final String MSG_ENTREZ_CATEGORIE = "Entrez un numero de categories (0 pour terminer) : ";
     public static final String MSG_DEBUT = "Cette application permet d'executer diverses requetes pour rechercher des livres\n" +
             "dans une bibliotheque donnee. Elle permet plus particulierement de faire des\n" +
             "recherches par categorie(s), par expression dans le titre, par auteur, et par\n" +
@@ -65,7 +65,7 @@ public class ModuleRecherche {
             if(choix.length() != 1){
                 System.out.println(msgErr);
                 boolChoix = false;
-            }else if (choix == null ||
+            }else if(choix == null ||
                     choix.charAt(0) < min || choix.charAt(0) > max) {
                 System.out.println(msgErr);
                 boolChoix = false;
@@ -76,6 +76,32 @@ public class ModuleRecherche {
 
     /*Prends en parametre une ligne du resultat de la recherche et le
     formatte selon la convention donnee*/
+
+    public static String selecteCategorie(String choix) {
+        String categorie = "";
+
+        switch(choix) {
+            case "1":
+                categorie = "SCIENCE FICTION";
+                break;
+            case "2":
+                categorie = "ROMANCE";
+                break;
+            case "3":
+                categorie = "THRILLER";
+                break;
+            case "4":
+                categorie = "POLICIER";
+                break;
+            case "5":
+                categorie = "HUMOUR";
+                break;
+            case "6":
+                categorie = "DRAME";
+                break;
+        }
+        return categorie;
+    }
     public static String formatLivre(String resultatSubString) {
         int indexTab;
         String formateSubString;
@@ -119,23 +145,41 @@ public class ModuleRecherche {
     contenu dans la ligne visee*/
 
     //recherche partiel. p-e utiliser un while?
-    public static boolean compareOption(String subString, String entree) {
-        String compareOption;
-        boolean compare = false;
-        int index;
-        for(int i = 0; i < subString.length(); i = index) {
-            index = subString.indexOf('\t', i + 1);
-            if(index < 0){
-                index = subString.length();
+    public static String separeFiche(String subString, int tabVoulu) {
+        String compareEntree;
+        int indexTab = 0;
+        int compteurTab = 0;
+
+        while (compteurTab < tabVoulu) {
+            indexTab = subString.indexOf('\t', indexTab + 1);
+            compteurTab++;
+        }
+        compareEntree = subString.substring(indexTab);
+        compareEntree = compareEntree.trim();
+        return compareEntree;
+    }
+
+    public static boolean estContenu(String compareEntree, String entree) {
+        boolean estContenu = false;
+        int indexTabEntree = 0;
+        String subCompareEntree;
+
+        //remplace par while
+        for(int i = 0; i < compareEntree.length(); i = indexTabEntree) {
+            indexTabEntree = compareEntree.indexOf('\t', indexTabEntree + 1);
+            if(indexTabEntree < 0) {
+                indexTabEntree = compareEntree.length();
             }
-            compareOption = subString.substring(i, index);
-            compareOption = compareOption.trim();
-            if(compareOption.contains(entree) || compareOption.compareToIgnoreCase(entree) == 0) {
-                compare = true;
+            subCompareEntree = compareEntree.substring(i, indexTabEntree);
+            subCompareEntree = subCompareEntree.trim();
+            if (subCompareEntree.contains(entree) ||
+                    subCompareEntree.compareToIgnoreCase(entree) == 0) {
+                estContenu = true;
             }
         }
-        return compare;
+        return estContenu;
     }
+
 
     /*Prends en paramettre le document de reference bibliotheque et l'entree
     recherchee. L'entree est recherchee a travers le document de reference*/
@@ -144,6 +188,7 @@ public class ModuleRecherche {
     public static String rechercheEntree(String biblio, String entree) {
         String resultatRecherche = "";
         String rechercheSub;
+        String smallRechercheSub;
         int indexDebut;
         int indexFin;
 
@@ -152,7 +197,8 @@ public class ModuleRecherche {
             indexFin = biblio.indexOf('\n', indexDebut);
             if (indexFin >= 0) {
                 rechercheSub = biblio.substring(indexDebut, indexFin);
-                if (compareOption(rechercheSub, entree)) {
+                smallRechercheSub = separeFiche(rechercheSub, 3);
+                if (estContenu(smallRechercheSub, entree)) {
                     resultatRecherche += rechercheSub + '\n';
                 }
                 indexFin++;
@@ -167,4 +213,8 @@ public class ModuleRecherche {
 
         return resultatRecherche;
     }
+
+    //public static String rechecheCategorie(String categorie) {
+
+    //}
 }
