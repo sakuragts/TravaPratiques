@@ -7,6 +7,9 @@ public class Main {
         String categorie = "";
         String resultat = "";
         String trouveCategorie;
+        String trouveCategorieSub;
+        int indexFinLigne;
+        int indexDebutLigne;
 
 
 
@@ -15,12 +18,21 @@ public class Main {
         while(!choix.equals("0")) {
             choix = ModuleRecherche.validerChoix(ModuleRecherche.MSG_ENTREZ_CATEGORIE,ModuleRecherche.ERR_CATEGORIES, '0', '6');
             categorie = ModuleRecherche.selecteCategorie(choix);
-            trouveCategorie = ModuleRecherche.rechercheEntree(biblio, categorie);
 
-            if(!ModuleRecherche.estContenu(resultat, choix)) {
-                resultat += trouveCategorie;
-            System.out.println(trouveCategorie + "\n" + "\n");
-            System.out.println(resultat + "\n") ;
+            trouveCategorie = ModuleRecherche.rechercheEntree(biblio, categorie);
+            indexFinLigne = 0;
+            if(!choix.equals("0")) {
+                while(indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
+                    indexDebutLigne = indexFinLigne;
+                    indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
+                    if(indexFinLigne != -1) {
+                        trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
+                        indexFinLigne++;
+                        if(!resultat.contains(trouveCategorieSub)) {
+                            resultat += ModuleRecherche.formatLivre(trouveCategorieSub)+ "\n";
+                    }
+                }
+            }
             }
         }
 

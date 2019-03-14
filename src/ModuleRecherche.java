@@ -214,7 +214,28 @@ public class ModuleRecherche {
         return resultatRecherche;
     }
 
-    //public static String rechecheCategorie(String categorie) {
+    public static String rechecheCategorieDisjonc(String biblio, String choix) {
+        String resultat = "";
+        String trouveCategorie;
+        String trouveCategorieSub;
+        int indexFinLigne;
+        int indexDebutLigne;
 
-    //}
+        trouveCategorie = ModuleRecherche.rechercheEntree(biblio, choix);
+        indexFinLigne = 0;
+        if(!choix.equals("0")) {
+            while(indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
+                indexDebutLigne = indexFinLigne;
+                indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
+                if(indexFinLigne != -1) {
+                    trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
+                    indexFinLigne++;
+                    if(!resultat.contains(trouveCategorieSub)) {
+                        resultat += ModuleRecherche.formatLivre(trouveCategorieSub)+ "\n";
+                    }
+                }
+            }
+        }
+        return resultat;
+    }
 }
