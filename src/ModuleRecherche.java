@@ -161,22 +161,33 @@ public class ModuleRecherche {
 
     public static boolean estContenu(String compareEntree, String entree) {
         boolean estContenu = false;
+        int indexTabCompare = 0;
         int indexTabEntree = 0;
+        int indexTabEntree2 = 0;
         String subCompareEntree;
+        String subEntree = "";
 
-        //remplace par while
-        for(int i = 0; i < compareEntree.length(); i = indexTabEntree) {
-            indexTabEntree = compareEntree.indexOf('\t', indexTabEntree + 1);
-            if(indexTabEntree < 0) {
-                indexTabEntree = compareEntree.length();
+        do {
+            if (entree.indexOf('\t')!= -1) {
+                indexTabEntree2 = indexTabEntree;
+                indexTabEntree = entree.indexOf('\t', indexTabEntree);
+                subEntree = entree.substring(indexTabEntree2, indexTabEntree);
+                indexTabEntree++;
             }
-            subCompareEntree = compareEntree.substring(i, indexTabEntree);
-            subCompareEntree = subCompareEntree.trim();
-            if (subCompareEntree.contains(entree) ||
-                    subCompareEntree.compareToIgnoreCase(entree) == 0) {
-                estContenu = true;
+
+            for (int j = 0; j < compareEntree.length(); j = indexTabCompare) {
+                indexTabCompare = compareEntree.indexOf('\t', indexTabCompare + 1);
+                if (indexTabCompare < 0) {
+                    indexTabCompare = compareEntree.length();
+                }
+                subCompareEntree = compareEntree.substring(j, indexTabCompare);
+                subCompareEntree = subCompareEntree.trim();
+                if (subCompareEntree.contains(subEntree) ||
+                        subCompareEntree.compareToIgnoreCase(subEntree) == 0) {
+                    estContenu = true;
+                }
             }
-        }
+        } while(indexTabEntree != -1);
         return estContenu;
     }
 
@@ -212,6 +223,17 @@ public class ModuleRecherche {
         }
 
         return resultatRecherche;
+    }
+
+    public static String validerCategories() {
+        String choix = "";
+        String categories = "";
+
+        while(!choix.equals("0")) {
+            choix = validerChoix(MSG_ENTREZ_CATEGORIE, ERR_CATEGORIES, '0', '6');
+            categories += selecteCategorie(choix) + '\t';
+        }
+        return categories;
     }
 
     public static String rechecheCategorieDisjonc(String biblio) {

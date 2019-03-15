@@ -12,13 +12,13 @@ public class Main {
         int indexDebutLigne;
 
 
-
-        System.out.print(ModuleRecherche.MENU_CATEGORIES);
-
-        resultat = ModuleRecherche.rechercheCategorieConjonc(biblio);
+       boolean test = ModuleRecherche.estContenu("thriller\tpolicier\tRomance", "DRAME\tROMANCE\tTHRILLER");
 
 
-        System.out.println(resultat);
+        //resultat = ModuleRecherche.rechercheCategorieConjonc(biblio);
+
+        System.out.println(test);
+
 
     }
 
