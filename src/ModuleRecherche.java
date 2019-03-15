@@ -214,28 +214,70 @@ public class ModuleRecherche {
         return resultatRecherche;
     }
 
-    public static String rechecheCategorieDisjonc(String biblio, String choix) {
+    public static String rechecheCategorieDisjonc(String biblio) {
+        String choix = "";
         String resultat = "";
+        String categorie;
         String trouveCategorie;
         String trouveCategorieSub;
         int indexFinLigne;
         int indexDebutLigne;
 
-        trouveCategorie = ModuleRecherche.rechercheEntree(biblio, choix);
-        indexFinLigne = 0;
-        if(!choix.equals("0")) {
-            while(indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
+
+        while(!choix.equals("0")) {
+            choix = validerChoix(MSG_ENTREZ_CATEGORIE,
+                    ERR_CATEGORIES, '0', '6');
+            categorie = selecteCategorie(choix);
+            trouveCategorie = rechercheEntree(biblio, categorie);
+            indexFinLigne = 0;
+            if (!choix.equals("0")) {
+                while (indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
                 indexDebutLigne = indexFinLigne;
                 indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
-                if(indexFinLigne != -1) {
+                if (indexFinLigne != -1) {
                     trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
                     indexFinLigne++;
-                    if(!resultat.contains(trouveCategorieSub)) {
-                        resultat += ModuleRecherche.formatLivre(trouveCategorieSub)+ "\n";
+                    if (!resultat.contains(trouveCategorieSub)) {
+                        resultat += formatLivre(trouveCategorieSub) + "\n";
+                    }
+                }
+            }
+        }
+        }
+        return resultat;
+    }
+
+    public static String rechercheCategorieConjonc(String biblio) {
+        String choix = "";
+        String categorie = "";
+        String rechecheCategorie = "";
+        String resultat = "";
+        String trouveCategorie;
+        String trouveCategorieSub;
+        int indexFinLigne = 0;
+        int indexDebutLigne;
+
+        while(!choix.equals("0")) {
+            choix = ModuleRecherche.validerChoix(ModuleRecherche.MSG_ENTREZ_CATEGORIE,
+                    ModuleRecherche.ERR_CATEGORIES, '0', '6');
+            categorie = selecteCategorie(choix);
+            rechecheCategorie += choix;
+        }
+        trouveCategorie = rechercheEntree(biblio, categorie);
+        if (!choix.equals("0")) {
+            while (indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
+                indexDebutLigne = indexFinLigne;
+                indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
+                if (indexFinLigne != -1) {
+                    trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
+                    indexFinLigne++;
+                    if (!resultat.contains(trouveCategorieSub)) {
+                        resultat += ModuleRecherche.formatLivre(trouveCategorieSub) + "\n";
                     }
                 }
             }
         }
         return resultat;
     }
+
 }
