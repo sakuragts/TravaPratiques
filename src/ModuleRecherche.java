@@ -145,16 +145,16 @@ public class ModuleRecherche {
     contenu dans la ligne visee*/
 
     //recherche partiel. p-e utiliser un while?
-    public static String separeFiche(String ligne, int tabVoulu) {
+    public static String separeFiche(String subString, int tabVoulu) {
         String compareEntree;
         int indexTab = 0;
         int compteurTab = 0;
 
         while (compteurTab < tabVoulu) {
-            indexTab = ligne.indexOf('\t', indexTab + 1);
+            indexTab = subString.indexOf('\t', indexTab + 1);
             compteurTab++;
         }
-        compareEntree = ligne.substring(indexTab);
+        compareEntree = subString.substring(indexTab);
         compareEntree = compareEntree.trim();
         return compareEntree;
     }
@@ -185,65 +185,99 @@ public class ModuleRecherche {
     recherchee. L'entree est recherchee a travers le document de reference*/
 
     //p-e utiliser cette methode pour separer le texte par ligne?
-    public static String rechercheBiblio(String biblio, String entree, int tabVoulu) {
+    public static String rechercheEntree(String biblio, String entree) {
         String resultatRecherche = "";
         String rechercheSub;
-        int indexDebutLigne;
-        int indexFinLigne = 0;
+        String smallRechercheSub;
+        int indexDebut;
+        int indexFin;
 
-        while(indexFinLigne != -1) {
-            indexDebutLigne = indexFinLigne;
-            indexFinLigne = biblio.indexOf('\n', indexDebutLigne + 1);
-            if(indexFinLigne != -1) {
-                rechercheSub = biblio.substring(indexDebutLigne, indexFinLigne);
-                resultatRecherche += rechercheEntree(rechercheSub, entree, tabVoulu);
-                indexFinLigne++;
-            }
-        }
-
-        if(resultatRecherche.isEmpty()) {
-            System.out.println(ERR_PAS_TROUVE);
-        }
-        /*
-        for(int i = 0; i < biblio.length(); i = indexFinLigne) {
-            indexDebutLigne = i;
-            indexFinLigne = biblio.indexOf('\n', indexDebutLigne);
-            if (indexFinLigne >= 0) {
-                rechercheSub = biblio.substring(indexDebutLigne, indexFinLigne);
-                resultatRecherche += rechercheEntree(rechercheSub, entree, tabVoulu);
-                indexFinLigne++;
+        for(int i = 0; i < biblio.length(); i = indexFin) {
+            indexDebut = i;
+            indexFin = biblio.indexOf('\n', indexDebut);
+            if (indexFin >= 0) {
+                rechercheSub = biblio.substring(indexDebut, indexFin);
+                smallRechercheSub = separeFiche(rechercheSub, 3);
+                if (estContenu(smallRechercheSub, entree)) {
+                    resultatRecherche += rechercheSub + '\n';
+                }
+                indexFin++;
             }else {
-                indexFinLigne = biblio.length();
+                indexFin = biblio.length();
             }
 
         }
         if(resultatRecherche.isEmpty()) {
             System.out.println(ERR_PAS_TROUVE);
-        }*/
-
-        return resultatRecherche;
-    }
-
-    public static String isoleLigne(String biblio, int indexDebutLigne, int indexFinLigne, boolean plusFois) {
-        String ligne;
-        ligne = biblio.substring(indexDebutLigne, indexFinLigne);
-
-        return ligne;
-    }
-
-    public static String rechercheEntree(String ligne, String entree, int tabVoulu) {
-        String resultatRecherche = "";
-        String subLigne;
-
-        subLigne = separeFiche(ligne, tabVoulu);
-        if(estContenu(subLigne, entree)) {
-            resultatRecherche = ligne + "\n";
         }
+
         return resultatRecherche;
     }
 
+    public static String rechecheCategorieDisjonc(String biblio) {
+        String choix = "";
+        String resultat = "";
+        String categorie;
+        String trouveCategorie;
+        String trouveCategorieSub;
+        int indexFinLigne;
+        int indexDebutLigne;
 
-    //public static String rechecheCategorie(String categorie) {
 
-    //}
+        while(!choix.equals("0")) {
+            choix = validerChoix(MSG_ENTREZ_CATEGORIE,
+                    ERR_CATEGORIES, '0', '6');
+            categorie = selecteCategorie(choix);
+            trouveCategorie = rechercheEntree(biblio, categorie);
+            indexFinLigne = 0;
+            if (!choix.equals("0")) {
+                while (indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
+                indexDebutLigne = indexFinLigne;
+                indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
+                if (indexFinLigne != -1) {
+                    trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
+                    indexFinLigne++;
+                    if (!resultat.contains(trouveCategorieSub)) {
+                        resultat += formatLivre(trouveCategorieSub) + "\n";
+                    }
+                }
+            }
+        }
+        }
+        return resultat;
+    }
+
+    public static String rechercheCategorieConjonc(String biblio) {
+        String choix = "";
+        String categorie = "";
+        String rechecheCategorie = "";
+        String resultat = "";
+        String trouveCategorie;
+        String trouveCategorieSub;
+        int indexFinLigne = 0;
+        int indexDebutLigne;
+
+        while(!choix.equals("0")) {
+            choix = ModuleRecherche.validerChoix(ModuleRecherche.MSG_ENTREZ_CATEGORIE,
+                    ModuleRecherche.ERR_CATEGORIES, '0', '6');
+            categorie = selecteCategorie(choix);
+            rechecheCategorie += choix;
+        }
+        trouveCategorie = rechercheEntree(biblio, categorie);
+        if (!choix.equals("0")) {
+            while (indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
+                indexDebutLigne = indexFinLigne;
+                indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
+                if (indexFinLigne != -1) {
+                    trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
+                    indexFinLigne++;
+                    if (!resultat.contains(trouveCategorieSub)) {
+                        resultat += ModuleRecherche.formatLivre(trouveCategorieSub) + "\n";
+                    }
+                }
+            }
+        }
+        return resultat;
+    }
+
 }
