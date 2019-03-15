@@ -145,16 +145,16 @@ public class ModuleRecherche {
     contenu dans la ligne visee*/
 
     //recherche partiel. p-e utiliser un while?
-    public static String separeFiche(String subString, int tabVoulu) {
+    public static String separeFiche(String ligne, int tabVoulu) {
         String compareEntree;
         int indexTab = 0;
         int compteurTab = 0;
 
         while (compteurTab < tabVoulu) {
-            indexTab = subString.indexOf('\t', indexTab + 1);
+            indexTab = ligne.indexOf('\t', indexTab + 1);
             compteurTab++;
         }
-        compareEntree = subString.substring(indexTab);
+        compareEntree = ligne.substring(indexTab);
         compareEntree = compareEntree.trim();
         return compareEntree;
     }
@@ -185,34 +185,63 @@ public class ModuleRecherche {
     recherchee. L'entree est recherchee a travers le document de reference*/
 
     //p-e utiliser cette methode pour separer le texte par ligne?
-    public static String rechercheEntree(String biblio, String entree) {
+    public static String rechercheBiblio(String biblio, String entree, int tabVoulu) {
         String resultatRecherche = "";
         String rechercheSub;
-        String smallRechercheSub;
-        int indexDebut;
-        int indexFin;
+        int indexDebutLigne;
+        int indexFinLigne = 0;
 
-        for(int i = 0; i < biblio.length(); i = indexFin) {
-            indexDebut = i;
-            indexFin = biblio.indexOf('\n', indexDebut);
-            if (indexFin >= 0) {
-                rechercheSub = biblio.substring(indexDebut, indexFin);
-                smallRechercheSub = separeFiche(rechercheSub, 3);
-                if (estContenu(smallRechercheSub, entree)) {
-                    resultatRecherche += rechercheSub + '\n';
-                }
-                indexFin++;
+        while(indexFinLigne != -1) {
+            indexDebutLigne = indexFinLigne;
+            indexFinLigne = biblio.indexOf('\n', indexDebutLigne + 1);
+            if(indexFinLigne != -1) {
+                rechercheSub = biblio.substring(indexDebutLigne, indexFinLigne);
+                resultatRecherche += rechercheEntree(rechercheSub, entree, tabVoulu);
+                indexFinLigne++;
+            }
+        }
+
+        if(resultatRecherche.isEmpty()) {
+            System.out.println(ERR_PAS_TROUVE);
+        }
+        /*
+        for(int i = 0; i < biblio.length(); i = indexFinLigne) {
+            indexDebutLigne = i;
+            indexFinLigne = biblio.indexOf('\n', indexDebutLigne);
+            if (indexFinLigne >= 0) {
+                rechercheSub = biblio.substring(indexDebutLigne, indexFinLigne);
+                resultatRecherche += rechercheEntree(rechercheSub, entree, tabVoulu);
+                indexFinLigne++;
             }else {
-                indexFin = biblio.length();
+                indexFinLigne = biblio.length();
             }
 
         }
         if(resultatRecherche.isEmpty()) {
             System.out.println(ERR_PAS_TROUVE);
-        }
+        }*/
 
         return resultatRecherche;
     }
+
+    public static String isoleLigne(String biblio, int indexDebutLigne, int indexFinLigne, boolean plusFois) {
+        String ligne;
+        ligne = biblio.substring(indexDebutLigne, indexFinLigne);
+
+        return ligne;
+    }
+
+    public static String rechercheEntree(String ligne, String entree, int tabVoulu) {
+        String resultatRecherche = "";
+        String subLigne;
+
+        subLigne = separeFiche(ligne, tabVoulu);
+        if(estContenu(subLigne, entree)) {
+            resultatRecherche = ligne + "\n";
+        }
+        return resultatRecherche;
+    }
+
 
     //public static String rechecheCategorie(String categorie) {
 
