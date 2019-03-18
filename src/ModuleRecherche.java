@@ -154,45 +154,56 @@ public class ModuleRecherche {
             indexTab = subString.indexOf('\t', indexTab + 1);
             compteurTab++;
         }
+
         compareEntree = subString.substring(indexTab);
         compareEntree = compareEntree.trim();
         return compareEntree;
     }
 
+    public static String separeMots (String subString, int indexDebutMot) {
+        int indexFinMotIsole;
+        String motIsole;
+
+        indexFinMotIsole = subString.indexOf('\t', indexDebutMot + 1);
+        motIsole = subString.substring(indexDebutMot, indexFinMotIsole).trim();
+        return motIsole;
+    }
+
+    public static String separeLignes (String subString, int indexFinLigne) {
+        int indexDebutLigne;
+        String ligneIsolee = "";
+
+        indexDebutLigne = indexFinLigne;
+        indexFinLigne = subString.indexOf('\n', indexDebutLigne + 1);
+        if (indexFinLigne != -1) {
+            ligneIsolee = subString.substring(indexDebutLigne, indexFinLigne);
+        }
+        return ligneIsolee;
+    }
+
     public static boolean estContenu(String compareEntree, String entree) {
         boolean estContenu = false;
         int indexTabCompare = 0;
-        int indexTabEntree = 0;
-        int indexTabEntree2 = 0;
         String subCompareEntree;
-        String subEntree = "";
 
-        do {
-            if (entree.indexOf('\t')!= -1) {
-                indexTabEntree2 = indexTabEntree;
-                indexTabEntree = entree.indexOf('\t', indexTabEntree);
-                subEntree = entree.substring(indexTabEntree2, indexTabEntree);
-                indexTabEntree++;
-            }
 
-            for (int j = 0; j < compareEntree.length(); j = indexTabCompare) {
-                indexTabCompare = compareEntree.indexOf('\t', indexTabCompare + 1);
-                if (indexTabCompare < 0) {
-                    indexTabCompare = compareEntree.length();
-                }
-                subCompareEntree = compareEntree.substring(j, indexTabCompare);
-                subCompareEntree = subCompareEntree.trim();
-                if (subCompareEntree.contains(subEntree) ||
-                        subCompareEntree.compareToIgnoreCase(subEntree) == 0) {
-                    estContenu = true;
-                }
+        for (int j = 0; j < compareEntree.length(); j = indexTabCompare) {
+            indexTabCompare = compareEntree.indexOf('\t', indexTabCompare + 1);
+            if (indexTabCompare < 0) {
+                indexTabCompare = compareEntree.length();
             }
-        } while(indexTabEntree != -1);
+            subCompareEntree = compareEntree.substring(j, indexTabCompare);
+            subCompareEntree = subCompareEntree.trim();
+            if (subCompareEntree.contains(entree) ||
+                    subCompareEntree.compareToIgnoreCase(entree) == 0) {
+                estContenu = true;
+            }
+        }
         return estContenu;
     }
 
 
-    /*Prends en paramettre le document de reference bibliotheque et l'entree
+    /*Prends en parametre le document de reference bibliotheque et l'entree
     recherchee. L'entree est recherchee a travers le document de reference*/
 
     //p-e utiliser cette methode pour separer le texte par ligne?
@@ -225,51 +236,52 @@ public class ModuleRecherche {
         return resultatRecherche;
     }
 
+
     public static String validerCategories() {
         String choix = "";
-        String categories = "";
-
-        while(!choix.equals("0")) {
-            choix = validerChoix(MSG_ENTREZ_CATEGORIE, ERR_CATEGORIES, '0', '6');
-            categories += selecteCategorie(choix) + '\t';
-        }
-        return categories;
-    }
-
-    public static String rechecheCategorieDisjonc(String biblio) {
-        String choix = "";
-        String resultat = "";
         String categorie;
-        String trouveCategorie;
-        String trouveCategorieSub;
-        int indexFinLigne;
-        int indexDebutLigne;
-
-
+        String choixCategories = "";
         while(!choix.equals("0")) {
             choix = validerChoix(MSG_ENTREZ_CATEGORIE,
                     ERR_CATEGORIES, '0', '6');
             categorie = selecteCategorie(choix);
-            trouveCategorie = rechercheEntree(biblio, categorie);
-            indexFinLigne = 0;
-            if (!choix.equals("0")) {
-                while (indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
-                indexDebutLigne = indexFinLigne;
-                indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
-                if (indexFinLigne != -1) {
-                    trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
-                    indexFinLigne++;
-                    if (!resultat.contains(trouveCategorieSub)) {
-                        resultat += formatLivre(trouveCategorieSub) + "\n";
-                    }
-                }
+            if (!categorie.isEmpty()) {
+                choixCategories += categorie + '\t';
             }
         }
+        return choixCategories;
+    }
+
+    public static String rechecheCategorieDisjonc(String biblio, String choixCategories) {
+        String choix;
+        String resultat = "";
+        String trouveCategorie;
+        String trouveCategorieSub;
+        int indexFinMot;
+        int indexDebutMot = 0;
+        int indexFinLigne;
+
+        while (indexDebutMot < choixCategories.length() - 1) {
+            choix = separeMots(choixCategories, indexDebutMot);
+            trouveCategorie = rechercheEntree(biblio, choix);
+            indexFinMot = choixCategories.indexOf('\t', indexDebutMot + 1);
+            indexDebutMot = indexFinMot;
+            indexFinLigne = 0;
+            while (indexFinLigne != -1) {
+                trouveCategorieSub = separeLignes(trouveCategorie, indexFinLigne).trim();
+                indexFinLigne = trouveCategorie.indexOf('\n', indexFinLigne + 1);
+                if (!resultat.contains(trouveCategorieSub)) {
+                        resultat += trouveCategorieSub + "\n";
+                }
+            }
+
         }
         return resultat;
     }
 
-    public static String rechercheCategorieConjonc(String biblio) {
+
+
+    public static String rechercheCategorieConjonc(String biblio, String choixCategories) {
         String choix = "";
         String categorie = "";
         String rechecheCategorie = "";
@@ -279,6 +291,11 @@ public class ModuleRecherche {
         int indexFinLigne = 0;
         int indexDebutLigne;
 
+        rechecheCategorie = rechecheCategorieDisjonc(biblio, choixCategories);
+        if (rechecheCategorie.contains(choixCategories)) {
+            resultat += choixCategories;
+        }
+        /*
         while(!choix.equals("0")) {
             choix = ModuleRecherche.validerChoix(ModuleRecherche.MSG_ENTREZ_CATEGORIE,
                     ModuleRecherche.ERR_CATEGORIES, '0', '6');
@@ -298,7 +315,7 @@ public class ModuleRecherche {
                     }
                 }
             }
-        }
+        }*/
         return resultat;
     }
 

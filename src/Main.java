@@ -11,13 +11,15 @@ public class Main {
         int indexFinLigne;
         int indexDebutLigne;
 
+        System.out.print(ModuleRecherche.MENU_CATEGORIES);
+        categorie = ModuleRecherche.validerCategories();
 
-       boolean test = ModuleRecherche.estContenu("thriller\tpolicier\tRomance", "DRAME\tROMANCE\tTHRILLER");
 
 
-        //resultat = ModuleRecherche.rechercheCategorieConjonc(biblio);
+        resultat = ModuleRecherche.rechercheCategorieConjonc(biblio, categorie);
+        //resultat = ModuleRecherche.rechecheCategorieDisjonc(biblio, categorie);
 
-        System.out.println(test);
+        System.out.println(resultat);
 
 
     }
