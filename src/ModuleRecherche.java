@@ -205,7 +205,7 @@ public class ModuleRecherche {
             subCompareEntree = compareEntree.substring(j, indexTabCompare);
             subCompareEntree = subCompareEntree.trim();
             if (subCompareEntree.contains(entree) ||
-                    subCompareEntree.compareToIgnoreCase(entree) == 0) {
+                    subCompareEntree.equalsIgnoreCase(entree)) {
                 estContenu = true;
             }
         }
@@ -299,13 +299,14 @@ public class ModuleRecherche {
         String categorie = "";
         String rechecheCategorie = "";
         String resultat = "";
-        String trouveCategorie;
+        String ficheRecherche;
         String trouveCategorieSub;
         int indexFinLigne = 0;
         int indexDebutLigne;
 
         rechecheCategorie = rechecheCategorieDisjonc(biblio, choixCategories);
-        if (rechecheCategorie.contains(choixCategories)) {
+        ficheRecherche = separeFiche(rechecheCategorie, 3);
+        if (ficheRecherche.equalsIgnoreCase(choixCategories)) {
             resultat += choixCategories;
         }
         /*

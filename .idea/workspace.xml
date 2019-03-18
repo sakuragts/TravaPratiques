@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ModuleRecherche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModuleRecherche.java" afterDir="false" />
     </list>
@@ -20,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -29,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="261" column="35" lean-forward="true" selection-start-line="261" selection-start-column="35" selection-end-line="261" selection-end-column="35" />
+            <state relative-caret-position="180">
+              <caret line="308" column="26" selection-start-line="308" selection-start-column="26" selection-end-line="308" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -38,7 +36,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clavier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
+            <state relative-caret-position="433">
               <caret line="115" selection-start-line="115" selection-end-line="115" />
             </state>
           </provider>
@@ -238,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552664634559</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="completed rechercheTitre">
+      <created>1552929350127</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552929350127</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -254,13 +259,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8991723" weight="0.37561578" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.5688487" visible="true" weight="0.3460591" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.89841986" weight="0.37561578" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.56809634" visible="true" weight="0.3460591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.43115124" side_tool="true" visible="true" weight="0.3460591" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.4319037" side_tool="true" visible="true" weight="0.3460591" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49736643" weight="0.2857143" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49378532" weight="0.3271605" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -323,16 +328,17 @@
     <MESSAGE value="update a lot of stuff" />
     <MESSAGE value="added recheche disjonction" />
     <MESSAGE value="commit to merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit to merge" />
+    <MESSAGE value="completed rechercheTitre" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed rechercheTitre" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>20</line>
+          <line>18</line>
           <properties />
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -367,24 +373,24 @@
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/StringBuilder.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/AbstractStringBuilder.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/io/FileInputStream.java" />
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Clavier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="433">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Clavier.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="261" column="35" lean-forward="true" selection-start-line="261" selection-start-column="35" selection-end-line="261" selection-end-column="35" />
+        <state relative-caret-position="180">
+          <caret line="308" column="26" selection-start-line="308" selection-start-column="26" selection-end-line="308" selection-end-column="26" />
         </state>
       </provider>
     </entry>
