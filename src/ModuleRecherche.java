@@ -304,9 +304,10 @@ public class ModuleRecherche {
         int indexFinLigne = 0;
         int indexDebutLigne;
 
+        choixCategories = choixCategories.toLowerCase();
         rechecheCategorie = rechecheCategorieDisjonc(biblio, choixCategories);
-        ficheRecherche = separeFiche(rechecheCategorie, 3);
-        if (ficheRecherche.equalsIgnoreCase(choixCategories)) {
+        ficheRecherche = separeFiche(rechecheCategorie, 3).toLowerCase();
+        if (ficheRecherche.contains(choixCategories)) {
             resultat += choixCategories;
         }
         /*
