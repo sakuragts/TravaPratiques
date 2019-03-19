@@ -228,7 +228,7 @@ public class ModuleRecherche {
             indexDebut = i;
             indexFin = biblio.indexOf('\n', indexDebut);
             if (indexFin >= 0) {
-                rechercheSub = biblio.substring(indexDebut, indexFin);
+                rechercheSub = biblio.substring(indexDebut, indexFin).toLowerCase();
                 smallRechercheSub = separeFiche(rechercheSub, tabVoulu);
                 if (estContenu(smallRechercheSub, entree)) {
                     resultatRecherche += rechercheSub + '\n';
@@ -295,58 +295,57 @@ public class ModuleRecherche {
 
 
     public static String rechercheCategorieConjonc(String biblio, String choixCategories) {
-        String choix = "";
+        String choix;
         String categorie = "";
-        String rechecheCategorie = "";
+        String rechecheCategorie;
         String resultat = "";
         String ficheRecherche;
-        String trouveCategorieSub;
+        String trouveCategorieSub = "";
         int indexFinLigne = 0;
-        int indexDebutLigne;
+        int indexDebutMot;
+        int indexFinMot;
+        boolean estConjonc;
 
         choixCategories = choixCategories.toLowerCase();
         rechecheCategorie = rechecheCategorieDisjonc(biblio, choixCategories);
-        ficheRecherche = separeFiche(rechecheCategorie, 3).toLowerCase();
-        if (ficheRecherche.contains(choixCategories)) {
-            resultat += choixCategories;
-        }
-        /*
-        while(!choix.equals("0")) {
-            choix = ModuleRecherche.validerChoix(ModuleRecherche.MSG_ENTREZ_CATEGORIE,
-                    ModuleRecherche.ERR_CATEGORIES, '0', '6');
-            categorie = selecteCategorie(choix);
-            rechecheCategorie += choix;
-        }
-        trouveCategorie = rechercheEntree(biblio, categorie);
-        if (!choix.equals("0")) {
-            while (indexFinLigne != -1 || indexFinLigne > trouveCategorie.length()) {
-                indexDebutLigne = indexFinLigne;
-                indexFinLigne = trouveCategorie.indexOf('\n', indexDebutLigne + 1);
-                if (indexFinLigne != -1) {
-                    trouveCategorieSub = trouveCategorie.substring(indexDebutLigne, indexFinLigne);
-                    indexFinLigne++;
-                    if (!resultat.contains(trouveCategorieSub)) {
-                        resultat += ModuleRecherche.formatLivre(trouveCategorieSub) + "\n";
-                    }
+
+        while (indexFinLigne != -1 && indexFinLigne < rechecheCategorie
+                .length() - 1) {
+            ficheRecherche = separeLignes(rechecheCategorie, indexFinLigne).trim();
+            indexFinLigne = rechecheCategorie.indexOf('\n', indexFinLigne
+                    + 1);
+            indexDebutMot = 0;
+            estConjonc = true;
+            while (indexDebutMot < choixCategories.length() - 1) {
+                choix = separeMots(choixCategories, indexDebutMot);
+                trouveCategorieSub = separeFiche(ficheRecherche,3);
+                indexDebutMot = choixCategories.indexOf('\t', indexDebutMot + 1);
+                if (!trouveCategorieSub.contains(choix)) {
+                    estConjonc = false;
                 }
             }
-        }*/
+            if (estConjonc) {
+                resultat += ficheRecherche;
+            }
+        }
+
         return resultat;
     }
 
     public static String rechercheTitre (String biblio, int tabVoulu) {
-        String entreeTitre = "";
+        String entreeTitre;
         String rechercheTitre = "";
         boolean continuer = false;
 
         do {
-            entreeTitre = validerChoix(MSG_TITRE, ERR_CHOIX, '0', 'z', 4);
+            entreeTitre = validerChoix(MSG_TITRE, ERR_CHOIX, '0', 'z', 4).toLowerCase();
             if (!entreeTitre.isEmpty()) {
                 if (entreeTitre.length() < 5) {
                     System.out.println(ERR_TITRE);
                 } else {
                     continuer = true;
-                    rechercheTitre = rechercheEntree(biblio, entreeTitre, tabVoulu);
+                    rechercheTitre = rechercheEntree(biblio, entreeTitre,
+                            tabVoulu);
                 }
 
             } else {

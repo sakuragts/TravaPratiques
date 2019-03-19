@@ -11,14 +11,15 @@ public class Main {
         int indexFinLigne;
         int indexDebutLigne;
 
-        System.out.print(ModuleRecherche.MENU_CATEGORIES);
-        categorie = ModuleRecherche.validerCategories();
+        //System.out.print(ModuleRecherche.MENU_CATEGORIES);
+        //categorie = ModuleRecherche.validerCategories();
 
 
 
-        resultat = ModuleRecherche.rechercheCategorieConjonc(biblio, categorie);
+        //resultat = ModuleRecherche.rechercheCategorieConjonc(biblio,
+                //categorie);
         //resultat = ModuleRecherche.rechecheCategorieDisjonc(biblio, categorie);
-        //resultat = ModuleRecherche.rechercheTitre(biblio, 0);
+        resultat = ModuleRecherche.rechercheTitre(biblio, 0);
 
         System.out.println(resultat);
 
