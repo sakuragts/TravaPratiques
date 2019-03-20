@@ -53,7 +53,20 @@ public class ModuleRecherche {
     public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
     public static final String ERR_CATEGORIES = "Erreur, numero de categorie invalide! Recommencez...";
     public static final String ERR_PAS_TROUVE = "AUCUN LIVRE TROUVE.";
-    public static final String ERR_TITRE = "Erreur, le titre doit contenir au moins 5 caracteres ! Recommencez...";
+    public static final String ERR_TITRE = "Erreur, le titre doit contenir au moins 5 caracteres valide! Recommencez...";
+    public static final String ERR_AUTEUR = "Erreur, le nom de l'auteur doit contenir au moins 3 caracteres valide! Recommencez...";
+    public static final String ERR_PERIODE = "Erreur, l'annee doit etre un entier entre 1900 et 2019 inclusivement! Recommencez...";
+
+    public static final boolean validerChar (String choix, char min, char max) {
+        boolean estValide = true;
+
+        for (int i = 0; i < choix.length(); i++) {
+            if (choix.charAt(i) < min && choix.charAt(i) > max) {
+                estValide = false;
+            }
+        }
+        return estValide;
+    }
 
     //prends et valide le choix de l'utilisateur
    public static String validerChoix(String msgMenu, String msgErr, char min, char max, int maxLength) {
@@ -68,13 +81,18 @@ public class ModuleRecherche {
             } else if (choix.length() <= maxLength){
                 System.out.println(msgErr);
                 boolChoix = false;
-            }else if (choix == null ||
-                    choix.charAt(0) < min || choix.charAt(0) > max) {
+            }else if (choix == null || !validerChar(choix, min, max)) {
                 System.out.println(msgErr);
                 boolChoix = false;
             }
         }while(!boolChoix);
+        choix = choix.toUpperCase();
         return choix;
+    }
+
+    public static void continuerRech () {
+       System.out.println(MSG_ENTREE);
+       Clavier.lireFinLigne();
     }
 
     /*Prends en parametre une ligne du resultat de la recherche et le
@@ -117,7 +135,7 @@ public class ModuleRecherche {
         indexTab = resultatSubString.indexOf('\t', indexTab + 1);
         formateSubString += resultatSubString.substring(indexTab - 4, indexTab)
                 + "), [ " +
-            resultatSubString.substring(indexTab + 1).replace('\t', ',').toLowerCase() + " ]";
+            resultatSubString.substring(indexTab + 1).replace('\t', ',').toUpperCase()+ " ]";
         formateSubString = formatePlaceAnnee(formateSubString);
 
         return formateSubString;
@@ -228,7 +246,7 @@ public class ModuleRecherche {
             indexDebut = i;
             indexFin = biblio.indexOf('\n', indexDebut);
             if (indexFin >= 0) {
-                rechercheSub = biblio.substring(indexDebut, indexFin).toLowerCase();
+                rechercheSub = biblio.substring(indexDebut, indexFin).toUpperCase();
                 smallRechercheSub = separeFiche(rechercheSub, tabVoulu);
                 if (estContenu(smallRechercheSub, entree)) {
                     resultatRecherche += rechercheSub + '\n';
@@ -296,17 +314,15 @@ public class ModuleRecherche {
 
     public static String rechercheCategorieConjonc(String biblio, String choixCategories) {
         String choix;
-        String categorie = "";
         String rechecheCategorie;
         String resultat = "";
         String ficheRecherche;
-        String trouveCategorieSub = "";
+        String trouveCategorieSub;
         int indexFinLigne = 0;
         int indexDebutMot;
-        int indexFinMot;
         boolean estConjonc;
 
-        choixCategories = choixCategories.toLowerCase();
+        choixCategories = choixCategories.toUpperCase();
         rechecheCategorie = rechecheCategorieDisjonc(biblio, choixCategories);
 
         while (indexFinLigne != -1 && indexFinLigne < rechecheCategorie
@@ -335,25 +351,56 @@ public class ModuleRecherche {
     public static String rechercheTitre (String biblio, int tabVoulu) {
         String entreeTitre;
         String rechercheTitre = "";
-        boolean continuer = false;
+        boolean continuer;
 
         do {
-            entreeTitre = validerChoix(MSG_TITRE, ERR_CHOIX, '0', 'z', 4).toLowerCase();
+            continuer = false;
+            entreeTitre = validerChoix(MSG_TITRE, ERR_TITRE, '0', 'z', 4).toUpperCase();
             if (!entreeTitre.isEmpty()) {
-                if (entreeTitre.length() < 5) {
-                    System.out.println(ERR_TITRE);
-                } else {
-                    continuer = true;
-                    rechercheTitre = rechercheEntree(biblio, entreeTitre,
-                            tabVoulu);
-                }
-
+                continuer = true;
+                rechercheTitre = rechercheEntree(biblio, entreeTitre,
+                        tabVoulu);
             } else {
                 continuer = true;
                 System.out.println(MSG_ANNULEE);
             }
         } while (!continuer);
         return rechercheTitre;
+    }
+
+    public static String rechercheAuteur (String biblio, int tabVoulu) {
+        String entreeAuteur;
+        String rechercheAuteur = "";
+        boolean continuer;
+
+        do {
+            continuer = false;
+            entreeAuteur = validerChoix(MSG_AUTEUR, ERR_AUTEUR, 'A', 'z', 2);
+            if (!entreeAuteur.isEmpty()) {
+                continuer = true;
+                rechercheAuteur = rechercheEntree(biblio, entreeAuteur, tabVoulu);
+            } else {
+                continuer = true;
+                System.out.println(MSG_ANNULEE);
+            }
+        } while (!continuer);
+        return rechercheAuteur;
+    }
+
+    public static String rechercheAnnee (String biblio, int tabVoulu) {
+        String entreeAnnee;
+        String rechercheAnnee = "";
+        boolean continuer;
+
+        do {
+            continuer = false;
+            entreeAnnee = validerChoix(MSG_PERIODE, ERR_PERIODE, '0', '9', 5 );
+            while () {
+                if (entreeAnnee.charAt(0) > 3) {
+                    System.out.println(ERR_PERIODE);
+                }
+            }
+        }
     }
 
 

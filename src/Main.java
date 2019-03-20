@@ -19,9 +19,10 @@ public class Main {
         //resultat = ModuleRecherche.rechercheCategorieConjonc(biblio,
                 //categorie);
         //resultat = ModuleRecherche.rechecheCategorieDisjonc(biblio, categorie);
-        resultat = ModuleRecherche.rechercheTitre(biblio, 0);
-
-        System.out.println(resultat);
+        //resultat = ModuleRecherche.rechercheTitre(biblio, 0);
+        //resultat = ModuleRecherche.rechercheAuteur(biblio, 1);
+        int test = 'ݬ';
+        System.out.println(test);
 
 
     }
