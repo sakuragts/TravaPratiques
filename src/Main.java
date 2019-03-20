@@ -21,8 +21,9 @@ public class Main {
         //resultat = ModuleRecherche.rechecheCategorieDisjonc(biblio, categorie);
         //resultat = ModuleRecherche.rechercheTitre(biblio, 0);
         //resultat = ModuleRecherche.rechercheAuteur(biblio, 1);
-        int test = 'ݬ';
-        System.out.println(test);
+        //resultat = ModuleRecherche.rechercheAnnee(biblio, 2);
+        //resultat = ModuleRecherche.menuPrincipal();
+        System.out.println(resultat);
 
 
     }
