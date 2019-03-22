@@ -21,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -29,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="469" column="20" selection-start-line="469" selection-start-column="20" selection-end-line="469" selection-end-column="20" />
+            <state relative-caret-position="406">
+              <caret line="519" column="20" lean-forward="true" selection-start-line="519" selection-start-column="20" selection-end-line="519" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -38,8 +38,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clavier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="502">
               <caret line="115" selection-start-line="115" selection-end-line="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/String.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="1502" selection-start-line="1502" selection-end-line="1502" />
+              <folding>
+                <element signature="e#58518#58519#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,10 +63,15 @@
       <find>while</find>
       <find>est</find>
       <find>separeFiche</find>
-      <find>validerChoix</find>
-      <find>validerCategories</find>
       <find>toLowerCase</find>
       <find>validerrechercheCat</find>
+      <find>maxLength</find>
+      <find>formatlivre</find>
+      <find>validerChoix</find>
+      <find>validerRechercheCat</find>
+      <find>validerCategories</find>
+      <find>rechercheTitre</find>
+      <find>menuPrincipal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,9 +140,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ModuleRecherche">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TravaPratiques" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModuleRecherche" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ModuleRecherche" />
       <module name="TravaPratiques" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -156,6 +181,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ModuleRecherche" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -269,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553102773268</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added main">
+      <created>1553125561872</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1553125561872</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -285,15 +318,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.89242053" visible="true" weight="0.2915327" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.56356966" weight="0.301179" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8801956" visible="true" weight="0.33440515" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.55134475" weight="0.26152197" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.10757946" side_tool="true" visible="true" weight="0.2915327" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49736643" weight="0.2857143" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49285176" weight="0.32635468" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.119804405" side_tool="true" visible="true" weight="0.33440515" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.496614" weight="0.2857143" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49144253" weight="0.32583067" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -358,7 +391,8 @@
     <MESSAGE value="last minute changes" />
     <MESSAGE value="last minute changes2" />
     <MESSAGE value="added Auteur and Annee" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Auteur and Annee" />
+    <MESSAGE value="added main" />
+    <option name="LAST_COMMIT_MESSAGE" value="added main" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Integer.java" />
@@ -367,7 +401,6 @@
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Math.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/sun/misc/URLClassPath.class" />
     <entry file="file://$PROJECT_DIR$/src/biblio.txt" />
-    <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/String.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/util/concurrent/ConcurrentHashMap.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/sun/misc/Launcher.class" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/System.java" />
@@ -393,24 +426,34 @@
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Math.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Arrays.java" />
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/String.java" />
-    <entry file="file://$PROJECT_DIR$/src/Clavier.java">
+    <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="173">
+          <caret line="1502" selection-start-line="1502" selection-end-line="1502" />
+          <folding>
+            <element signature="e#58518#58519#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Clavier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="469" column="20" selection-start-line="469" selection-start-column="20" selection-end-line="469" selection-end-column="20" />
+        <state relative-caret-position="406">
+          <caret line="519" column="20" lean-forward="true" selection-start-line="519" selection-start-column="20" selection-end-line="519" selection-end-column="20" />
         </state>
       </provider>
     </entry>
