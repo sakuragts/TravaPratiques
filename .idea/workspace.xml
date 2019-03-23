@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
+    <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="completed recheche conjonc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ModuleRecherche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModuleRecherche.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -114,10 +112,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-19" />
     <option name="y" value="24" />
     <option name="width" value="1272" />
-    <option name="height" value="1087" />
+    <option name="height" value="989" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -298,12 +295,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552930642287</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="completed recheche conjonc">
+      <created>1552972300626</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1552972300626</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-19" y="24" width="1272" height="1087" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -311,10 +314,10 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.18949045" side_tool="true" visible="true" weight="0.34567901" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.11464968" side_tool="true" visible="true" weight="0.34567901" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.8509514" weight="0.26337448" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8861465" weight="0.23971194" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.88535035" weight="0.23971194" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
@@ -324,7 +327,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.81050956" visible="true" weight="0.34567901" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.81050956" weight="0.34567901" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -393,7 +396,8 @@
     <MESSAGE value="commit to merge" />
     <MESSAGE value="completed rechercheTitre" />
     <MESSAGE value="last minute changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="last minute changes" />
+    <MESSAGE value="completed recheche conjonc" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed recheche conjonc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
