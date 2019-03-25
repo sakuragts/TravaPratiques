@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ModuleRecherche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModuleRecherche.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -29,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="519" column="20" lean-forward="true" selection-start-line="519" selection-start-column="20" selection-end-line="519" selection-end-column="20" />
+            <state relative-caret-position="455">
+              <caret line="520" column="52" selection-start-line="520" selection-start-column="52" selection-end-line="520" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -38,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clavier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="115" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="145">
+              <caret line="94" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
@@ -69,9 +66,11 @@
       <find>formatlivre</find>
       <find>validerChoix</find>
       <find>validerRechercheCat</find>
-      <find>validerCategories</find>
       <find>rechercheTitre</find>
       <find>menuPrincipal</find>
+      <find>separe</find>
+      <find>validerchoix</find>
+      <find>validerCategories</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -302,12 +301,25 @@
       <option name="project" value="LOCAL" />
       <updated>1553125561872</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="debugging1">
+      <created>1553214038561</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1553214038561</updated>
+    </task>
+    <task id="LOCAL-00017" summary="more debugging">
+      <created>1553275223177</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1553275223177</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="-8" width="1696" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.018337408" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -318,15 +330,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8801956" visible="true" weight="0.33440515" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.55134475" weight="0.26152197" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.87652814" visible="true" weight="0.24008575" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5482885" weight="0.26152197" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.119804405" side_tool="true" visible="true" weight="0.33440515" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.123471886" side_tool="true" visible="true" weight="0.24008575" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.496614" weight="0.2857143" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49144253" weight="0.32583067" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4908313" weight="0.32583067" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -392,7 +404,9 @@
     <MESSAGE value="last minute changes2" />
     <MESSAGE value="added Auteur and Annee" />
     <MESSAGE value="added main" />
-    <option name="LAST_COMMIT_MESSAGE" value="added main" />
+    <MESSAGE value="debugging1" />
+    <MESSAGE value="more debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="more debugging" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Integer.java" />
@@ -439,21 +453,21 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clavier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        <state relative-caret-position="145">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="519" column="20" lean-forward="true" selection-start-line="519" selection-start-column="20" selection-end-line="519" selection-end-column="20" />
+        <state relative-caret-position="455">
+          <caret line="520" column="52" selection-start-line="520" selection-start-column="52" selection-end-line="520" selection-end-column="52" />
         </state>
       </provider>
     </entry>
