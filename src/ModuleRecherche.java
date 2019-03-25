@@ -90,7 +90,6 @@ public class ModuleRecherche {
         boolean estValide = true;
 
         for (int i = 0; i < choix.length(); i++) {
-            int test = choix.charAt(i);
             if (choix.charAt(i) < min || choix.charAt(i) > max) {
                 estValide = false;
             }
@@ -168,6 +167,24 @@ public class ModuleRecherche {
 
         }
         return choixCategories;
+    }
+
+    public static boolean validerReponse (String subString, String entree) {
+        boolean estEgal = false;
+        int compteEntree = 0;
+        int compteSubString = 0;
+
+        while (compteSubString <= subString.length()) {
+            if (subString.charAt(compteSubString) == entree.charAt(compteSubString)) {
+                compteEntree++;
+            }
+            compteSubString++;
+        }
+        if (compteEntree == entree.length()) {
+            estEgal = true;
+        }
+        return estEgal;
+
     }
 
     public static void continuerRech () {
@@ -352,7 +369,8 @@ public class ModuleRecherche {
     recherchee. L'entree est recherchee a travers le document de reference*/
 
     //p-e utiliser cette methode pour separer le texte par ligne?
-    public static String rechercheEntree(String biblio, String entree, int tabVoulu) {
+    public static String rechercheEntree(String biblio, String entree,
+                                         int tabVoulu, boolean motsExact) {
         String resultatRecherche = "";
         String rechercheSub;
         String smallRechercheSub;
@@ -368,7 +386,11 @@ public class ModuleRecherche {
             rechercheSub = separeLignes(biblio, indexFin).toUpperCase();
             indexDebut = indexFin++;
             smallRechercheSub = separeFiche(rechercheSub, tabVoulu);
-            if (estContenu(smallRechercheSub, entree)) {
+            if (motsExact) {
+                if (validerReponse(rechercheSub, entree)) {
+                    resultatRecherche += rechercheSub + '\n';
+                }
+            } else if (estContenu(smallRechercheSub, entree)) {
                 resultatRecherche += rechercheSub + '\n';
             }
         }
@@ -409,7 +431,7 @@ public class ModuleRecherche {
 
         while (indexDebutMot < choixCategories.length() - 1) {
             choix = separeMots(choixCategories, indexDebutMot);
-            trouveCategorie = rechercheEntree(biblio, choix, tabVoulu);
+            trouveCategorie = rechercheEntree(biblio, choix, tabVoulu, false);
             indexFinMot = choixCategories.indexOf('\t', indexDebutMot + 1);
             indexDebutMot = indexFinMot;
             indexFinLigne = 0;
@@ -478,7 +500,7 @@ public class ModuleRecherche {
                         entreeTitre);
                 continuer = true;
                 rechercheTitre = rechercheEntree(biblio, entreeTitre,
-                        tabVoulu);
+                        tabVoulu, false);
             }
         } while (!continuer);
         resultatRech = formateResultat(rechercheTitre, indexFinLigne);
@@ -499,7 +521,7 @@ public class ModuleRecherche {
             requete(entreeAuteur);
             if (!entreeAuteur.isEmpty()) {
                 continuer = true;
-                rechercheAuteur = rechercheEntree(biblio, entreeAuteur, tabVoulu);
+                rechercheAuteur = rechercheEntree(biblio, entreeAuteur, tabVoulu, true);
 
             } else {
                 continuer = true;
@@ -529,7 +551,7 @@ public class ModuleRecherche {
                         (entreeAnnee.charAt(0) == '2' && entreeAnnee.charAt(1) == '0' &&
                                 entreeAnnee.charAt(2) == '1')) {
                     continuer = true;
-                    rechercheAnnee = rechercheEntree(biblio, entreeAnnee, tabVoulu);
+                    rechercheAnnee = rechercheEntree(biblio, entreeAnnee, tabVoulu, false);
                 }
                 resultatRech = formateResultat(rechercheAnnee, indexFinLigne);
 
