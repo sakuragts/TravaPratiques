@@ -1,17 +1,17 @@
 /**
  * I N F 1 1 2 0
  *
- * Decrivez votre classe LaboBoucles2B ici.
+ *
  *
  * @author Ingrid Blemur
- * @version 21/03/2019
+ * @version 23/03/2019
  *
  * BLEI08547903
  * blemur.ingrid@courrier.uqam.ca
  */
 
 public class ModuleRecherche {
-    public static final String MENU_PRINCIPAL = "-----------------\n" +
+    public static final String MENU_PRINCIPAL = "\n-----------------\n" +
             "MENU DE RECHERCHE\n" +
             "-----------------\n" +
             "1. Recherche par categorie(s)\n" +
@@ -21,7 +21,7 @@ public class ModuleRecherche {
             "5. Quitter\n" +
             "\n" +
             "Entrez votre choix : ";
-    public static final String MENU_CATEGORIES = "LISTE DES CATEGORIES : \n" +
+    public static final String MENU_CATEGORIES = "\nLISTE DES CATEGORIES : \n" +
             "1. Science fiction\n"+
             "2. Romance\n" +
             "3. Thriller\n" +
@@ -35,35 +35,54 @@ public class ModuleRecherche {
             "recherches par categorie(s), par expression dans le titre, par auteur, et par\n" +
             "periode de publication.\n";
     public static final String MSG_FIN = "FIN DU PROGRAMME. AU REVOIR!";
-    public static final String MSG_ENTREE = "Tapez <ENTREE> pour revenir au menu de recherche... \n";
-    public static final String MSG_CATEGORIES = "*** RECHERCHE PAR CATEGORIE(S) ***\n" +
+    public static final String MSG_ENTREE = "\nTapez <ENTREE> pour revenir au" +
+            " menu de recherche... \n";
+    public static final String MSG_CATEGORIES = "\n*** RECHERCHE PAR " +
+            "CATEGORIE(S) ***\n" +
             "\n" +
             "Recherche par (C)onjonction ou (D)isjonction : ";
-    public static final String MSG_TITRE = "*** RECHERCHE PAR TITRE ***\n" +
+    public static final String MSG_TITRE = "\n*** RECHERCHE PAR TITRE ***\n" +
             "\n" +
             "Entrez le titre ou une partie du titre (<ENTREE> pour terminer) : ";
-    public static final String MSG_ANNULEE = "RECHERCHE ANNULEE.";
-    public static final String MSG_AUTEUR = "*** RECHERCHE PAR AUTEUR ***\n" +
+    public static final String MSG_ANNULEE = "\nRECHERCHE ANNULEE.\n";
+    public static final String MSG_AUTEUR = "\n*** RECHERCHE PAR AUTEUR ***\n" +
             "\n" +
             "Entrez le nom de l'auteur (<ENTREE> pour terminer) : ";
-    public static final String MSG_PERIODE = "*** RECHERCHE PAR PERIODE ***\n" +
+    public static final String MSG_PERIODE = "\n*** RECHERCHE PAR PERIODE " +
+            "***\n" +
             "\n" +
             "Entrez l'annee du debut de la periode (0 pour terminer) : ";
-    public static final String MSG_RESULTAT = "RESULTAT(S) DE RECHERCHE :\n"
+    public static final String MSG_RESULTAT = "\nRESULTAT(S) DE RECHERCHE :\n"
             + "--------------------------";
-    public static final String ERR_CHOIX = "Erreur, choix invalide! Recommencez...";
-    public static final String ERR_CATEGORIES = "Erreur, numero de categorie invalide! Recommencez...";
-    public static final String ERR_CATEGORIES2 = "Erreur, veuillez choisir entre C ou D! Recommencez...";
-    public static final String ERR_PAS_TROUVE = "AUCUN LIVRE TROUVE.";
-    public static final String ERR_TITRE = "Erreur, le titre doit contenir au moins 5 caracteres valide! Recommencez...";
-    public static final String ERR_AUTEUR = "Erreur, le nom de l'auteur doit contenir au moins 3 caracteres valide! Recommencez...";
-    public static final String ERR_PERIODE = "Erreur, l'annee doit etre un entier entre 1900 et 2019 inclusivement! Recommencez...";
+    public static final String ERR_CHOIX = "Erreur, choix invalide! " +
+            "Recommencez...\n";
+    public static final String ERR_CATEGORIES = "Erreur, numero de categorie " +
+            "invalide! Recommencez...\n";
+    public static final String ERR_CATEGORIES2 = "Erreur, veuillez choisir " +
+            "entre C ou D! Recommencez...\n";
+    public static final String ERR_PAS_TROUVE = "AUCUN LIVRE TROUVE.\n";
+    public static final String ERR_TITRE = "Erreur, le titre doit contenir au" +
+            " moins 5 caracteres valide! Recommencez...\n";
+    public static final String ERR_AUTEUR = "Erreur, le nom de l'auteur doit " +
+            "contenir au moins 3 caracteres valide! Recommencez...\n";
+    public static final String ERR_PERIODE = "Erreur, l'annee doit etre un " +
+            "entier entre 1900 et 2019 inclusivement! Recommencez...\n";
+    public static final char OPTION_CONJ = 'C';
+    public static final char OPTION_DISJ = 'D';
+    public static final char CAT_MIN = '0';
+    public static final char CAT_MAX = '6';
+    public static final char MENU_PRINC_MIN = '1';
+    public static final char MENU_PRINC_MAX = '5';
+    public static final char RECH_MIN = ' ';
+    public static final char RECH_MAX = 'z';
+    public static final char RECH_ANNEE_MIN = '0';
+    public static final char RECH_ANNEE_MAX = '9';
 
     public static final String menuPrincipal () {
         String choixMenu;
         int minLength = 2;
 
-        choixMenu = validerChoixMin(MENU_PRINCIPAL, ERR_CHOIX, '1', '5', minLength);
+        choixMenu = validerChoixMin(MENU_PRINCIPAL, ERR_CHOIX, MENU_PRINC_MIN, MENU_PRINC_MAX, minLength);
         return choixMenu;
     }
 
@@ -120,6 +139,34 @@ public class ModuleRecherche {
             }
         }while(!boolChoix);
         return choix;
+    }
+
+    public static String validerRechercheCat () {
+        String conjOuDisj;
+        int minLength = 2;
+
+        conjOuDisj = validerChoixMin(MSG_CATEGORIES,ERR_CATEGORIES2,
+                OPTION_CONJ, OPTION_DISJ, minLength);
+        return conjOuDisj;
+    }
+
+    public static String validerCategories() {
+        String choix = "";
+        String categorie;
+        String choixCategories = "";
+        int minLength = 2;
+        while(!choix.equals("0")) {
+            choix = validerChoixMin(MSG_ENTREZ_CATEGORIE,
+                    ERR_CATEGORIES, CAT_MIN, CAT_MAX,minLength);
+            categorie = selecteCategorie(choix);
+            if (!choix.equals("0")) {
+                choixCategories += categorie + '\t';
+            }  else if (choixCategories.isEmpty()) {
+                System.out.println(MSG_ANNULEE);
+            }
+
+        }
+        return choixCategories;
     }
 
     public static void continuerRech () {
@@ -206,8 +253,21 @@ public class ModuleRecherche {
         return formateResultat;
     }
 
+    public static String requeteCat (char optionCat, String choixCategories) {
+        String requete;
+        String etOu;
 
-
+        if (optionCat == 'C') {
+            etOu = " et ";
+        } else {
+            etOu = " ou ";
+        }
+        requete = "\nREQUETE : " + choixCategories.substring(0,choixCategories
+                .lastIndexOf('\t')).replace
+                ("\t",
+                etOu);
+        return requete;
+    }
 
     /*Prends en parametre une ligne du document de references et l'entree recherchee. L'entree
     recherchee est comparee a chaque bloc separe par un espace tab pour trouver s'il est
@@ -280,7 +340,8 @@ public class ModuleRecherche {
     }
 
 
-    /*Prends en parametre le document de reference bibliotheque et l'entree
+
+        /*Prends en parametre le document de reference bibliotheque et l'entree
     recherchee. L'entree est recherchee a travers le document de reference*/
 
     //p-e utiliser cette methode pour separer le texte par ligne?
@@ -313,42 +374,12 @@ public class ModuleRecherche {
         return resultatRecherche;
     }
 
-    public static String validerRechercheCat () {
-        String conjOuDisj;
-        int minLength = 2;
-
-        conjOuDisj = validerChoixMin(MSG_CATEGORIES,ERR_CATEGORIES2, 'C', 'D', minLength);
-        return conjOuDisj;
-    }
-
-
-    public static String validerCategories() {
-        String choix = "";
-        String categorie;
-        String choixCategories = "";
-        int minLength = 2;
-        while(!choix.equals("0")) {
-            choix = validerChoixMin(MSG_ENTREZ_CATEGORIE,
-                    ERR_CATEGORIES, '0', '6',minLength);
-            categorie = selecteCategorie(choix);
-            if (!categorie.isEmpty()) {
-                choixCategories += categorie + '\t';
-            } else if (choixCategories.isEmpty()) {
-                System.out.println(MSG_ANNULEE);
-            }
-            if (choix.isEmpty()) {
-                System.out.println(ERR_CATEGORIES);
-            }
-
-        }
-        return choixCategories;
-    }
-
     public static String rechecheCategorieDisjonc(String biblio, String choixCategories, int tabVoulu) {
         String choix;
         String resultat = "";
         String trouveCategorie;
         String trouveCategorieSub;
+        String formateResultat = "";
         int indexFinMot;
         int indexDebutMot = 0;
         int indexFinLigne;
@@ -363,17 +394,18 @@ public class ModuleRecherche {
                 trouveCategorieSub = separeLignes(trouveCategorie, indexFinLigne).trim();
                 indexFinLigne = trouveCategorie.indexOf('\n', indexFinLigne + 1);
                 if (!resultat.contains(trouveCategorieSub)) {
-                        resultat += formatLivre(trouveCategorieSub) + "\n";
+                    resultat += trouveCategorieSub;
+                    formateResultat += formatLivre(trouveCategorieSub) + "\n";
                 }
             }
 
         }
-        return resultat;
+        return formateResultat;
     }
 
-
-
-    public static String rechercheCategorieConjonc(String biblio, String choixCategories, int tabVoulu) {
+    public static String rechercheCategorieConjonc(String biblio,
+                                                   String choixCategories,
+                                                   int tabVoulu) {
         String choix;
         String resultat = "";
         String ficheRecherche;
@@ -412,17 +444,18 @@ public class ModuleRecherche {
         boolean continuer;
 
         do {
-            continuer = false;
-            entreeTitre = validerChoixMax(MSG_TITRE, ERR_TITRE, ' ', 'z', maxLength);
-            if (!entreeTitre.isEmpty()) {
+            entreeTitre = validerChoixMax(MSG_TITRE, ERR_TITRE, RECH_MIN, RECH_MAX,
+                    maxLength);
+            if (entreeTitre.isEmpty()) {
+                continuer = true;
+                System.out.println(MSG_ANNULEE);
+
+            } else {
                 System.out.println("Le titre contient l'expression " +
                         entreeTitre);
                 continuer = true;
                 rechercheTitre = rechercheEntree(biblio, entreeTitre,
                         tabVoulu);
-            } else {
-                continuer = true;
-                System.out.println(MSG_ANNULEE);
             }
         } while (!continuer);
         resultatRech = formateResultat(rechercheTitre, indexFinLigne);
@@ -438,7 +471,8 @@ public class ModuleRecherche {
 
         do {
             continuer = false;
-            entreeAuteur = validerChoixMax(MSG_AUTEUR, ERR_AUTEUR, ' ', 'z', maxLength);
+            entreeAuteur = validerChoixMax(MSG_AUTEUR, ERR_AUTEUR, RECH_MIN,
+                    RECH_MAX, maxLength);
             if (!entreeAuteur.isEmpty()) {
                 continuer = true;
                 rechercheAuteur = rechercheEntree(biblio, entreeAuteur, tabVoulu);
@@ -454,26 +488,25 @@ public class ModuleRecherche {
     public static String rechercheAnnee (String biblio, int tabVoulu, int minLength) {
         String entreeAnnee;
         String rechercheAnnee = "";
-        String resultatRech;
+        String resultatRech = "";
         int indexFinLigne = 0;
-        boolean continuer;
+        boolean continuer = false;
 
         do {
-            continuer = false;
-            entreeAnnee = validerChoixMin(MSG_PERIODE, ERR_PERIODE, '0', '9', minLength );
-            if (!entreeAnnee.equals("0")) {
+            entreeAnnee = validerChoixMin(MSG_PERIODE, ERR_PERIODE,
+                    RECH_ANNEE_MIN, RECH_ANNEE_MAX, minLength );
+            if (entreeAnnee.equals("0")) {
+                continuer = true;
+                System.out.println(MSG_ANNULEE);
+            } else {
                 if (entreeAnnee.charAt(0) == '1' && entreeAnnee.charAt(1) == '9' ||
                         (entreeAnnee.charAt(0) == '2' && entreeAnnee.charAt(1) == '0' &&
                                 entreeAnnee.charAt(2) == '1')) {
                     continuer = true;
                     rechercheAnnee = rechercheEntree(biblio, entreeAnnee, tabVoulu);
-                } else {
-                    System.out.println(ERR_PERIODE);
                 }
                 resultatRech = formateResultat(rechercheAnnee, indexFinLigne);
-            } else {
-                continuer = true;
-                resultatRech = entreeAnnee;
+
             }
 
         } while (!continuer);
@@ -486,7 +519,7 @@ public class ModuleRecherche {
         String conjOuDisj;
         String biblio;
         String choixCategories;
-        String resultatRech = "";
+        String resultatRech;
         int maxLength;
         int tabVoulu;
         int minLength;
@@ -505,22 +538,29 @@ public class ModuleRecherche {
                     if (conjOuDisj.equals("C")) {
                         System.out.println(MENU_CATEGORIES);
                         choixCategories = validerCategories();
-                        if (!choixCategories.equals("0")) {
+                        System.out.println(requeteCat(OPTION_CONJ,
+                                choixCategories));
+                        if (!choixCategories.isEmpty()) {
                             resultatRech = rechercheCategorieConjonc(biblio,
                                     choixCategories, tabVoulu);
-                        } else {
-                            System.out.println(MSG_ANNULEE);
+                            if (resultatRech.isEmpty()) {
+
+                            }
+                            System.out.println(MSG_RESULTAT + "\n" + resultatRech);
+                            continuerRech();
                         }
 
                     } else {
                         System.out.println(MENU_CATEGORIES);
                         choixCategories = validerCategories();
-                        resultatRech = rechecheCategorieDisjonc(biblio,
-                                choixCategories, tabVoulu);
-                    }
-                    if (!resultatRech.isEmpty() && !resultatRech.equals("0")) {
-                        System.out.println(MSG_RESULTAT + "\n" + resultatRech);
-                        continuerRech();
+                        System.out.println(requeteCat(OPTION_DISJ,
+                                choixCategories));
+                        if (!choixCategories.isEmpty()) {
+                            resultatRech = rechecheCategorieDisjonc(biblio,
+                                    choixCategories, tabVoulu);
+                            System.out.println(MSG_RESULTAT + "\n" + resultatRech);
+                            continuerRech();
+                        }
                     }
 
                     break;
@@ -529,23 +569,27 @@ public class ModuleRecherche {
                     maxLength = 4;
                     tabVoulu = 0;
                     resultatRech = rechercheTitre(biblio, tabVoulu, maxLength);
-                    System.out.println(MSG_RESULTAT + "\n" + resultatRech);
-                    continuerRech();
+                    if (!resultatRech.isEmpty()) {
+                        System.out.println(MSG_RESULTAT + "\n" + resultatRech);
+                        continuerRech();
+                    }
                     break;
 
                 case "3":
                     maxLength = 2;
                     tabVoulu = 1;
                     resultatRech = rechercheAuteur(biblio, tabVoulu, maxLength);
-                    System.out.println(MSG_RESULTAT + "\n" + resultatRech);
-                    continuerRech();
+                    if (!resultatRech.isEmpty()) {
+                        System.out.println(MSG_RESULTAT + "\n" + resultatRech);
+                        continuerRech();
+                    }
                     break;
 
                 case "4":
                     minLength = 5;
                     tabVoulu = 2;
                     resultatRech = rechercheAnnee(biblio, tabVoulu, minLength);
-                    if (!resultatRech.equals("0")) {
+                    if (!resultatRech.equals("0") && !resultatRech.isEmpty()) {
                         System.out.println(MSG_RESULTAT + "\n" + resultatRech);
                         continuerRech();
                     }
