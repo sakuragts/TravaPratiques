@@ -174,8 +174,8 @@ public class ModuleRecherche {
         int compteEntree = 0;
         int compteSubString = 0;
 
-        while (compteSubString <= subString.length()) {
-            if (subString.charAt(compteSubString) == entree.charAt(compteSubString)) {
+        while (compteSubString < subString.length() && compteEntree < entree.length()) {
+            if (subString.charAt(compteSubString) == entree.charAt(compteEntree)) {
                 compteEntree++;
             }
             compteSubString++;
@@ -387,7 +387,7 @@ public class ModuleRecherche {
             indexDebut = indexFin++;
             smallRechercheSub = separeFiche(rechercheSub, tabVoulu);
             if (motsExact) {
-                if (validerReponse(rechercheSub, entree)) {
+                if (validerReponse(smallRechercheSub, entree)) {
                     resultatRecherche += rechercheSub + '\n';
                 }
             } else if (estContenu(smallRechercheSub, entree)) {
