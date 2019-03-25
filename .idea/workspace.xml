@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/.idea/workspace.xml" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
+    <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="more debugging2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModuleRecherche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModuleRecherche.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,6 +16,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/TravaPratiques$ModuleRecherche.ic" NAME="ModuleRecherche Coverage Results" MODIFIED="1553532940949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -26,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="520" column="52" selection-start-line="520" selection-start-column="52" selection-end-line="520" selection-end-column="52" />
+            <state relative-caret-position="3448">
+              <caret line="502" column="16" selection-start-line="502" selection-start-column="16" selection-end-line="502" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -35,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clavier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="503">
+              <caret line="115" selection-start-line="115" selection-end-line="115" />
             </state>
           </provider>
         </entry>
@@ -68,9 +76,12 @@
       <find>validerRechercheCat</find>
       <find>rechercheTitre</find>
       <find>menuPrincipal</find>
-      <find>separe</find>
-      <find>validerchoix</find>
+      <find>valider</find>
+      <find>rechercheAnnee</find>
       <find>validerCategories</find>
+      <find>validerChoixMin</find>
+      <find>requete</find>
+      <find>maxlength</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,9 +96,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1453" />
-    <option name="y" value="73" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1545" />
+    <option name="y" value="77" />
     <option name="width" value="1389" />
     <option name="height" value="945" />
   </component>
@@ -178,6 +189,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ModuleRecherche" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ModuleRecherche" />
@@ -190,7 +205,6 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="01d7a2bc-279e-4392-b1ed-9180e04fe530" name="Default" comment="" />
       <created>1552009000890</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -301,27 +315,21 @@
       <option name="project" value="LOCAL" />
       <updated>1553125561872</updated>
     </task>
-    <task id="LOCAL-00016" summary="debugging1">
-      <created>1553214038561</created>
+    <task id="LOCAL-00016" summary="more debugging2">
+      <created>1553515111599</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1553214038561</updated>
+      <updated>1553515111599</updated>
     </task>
-    <task id="LOCAL-00017" summary="more debugging">
-      <created>1553275223177</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1553275223177</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1688" y="-8" width="1696" height="1066" extended-state="6" />
+    <frame x="-1545" y="77" width="1389" height="945" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.018337408" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.022573363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -329,16 +337,17 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.87652814" visible="true" weight="0.24008575" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5482885" weight="0.26152197" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960032" weight="0.32951945" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8427389" visible="true" weight="0.36206895" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8449962" weight="0.25862068" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.123471886" side_tool="true" visible="true" weight="0.24008575" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1572611" side_tool="true" visible="true" weight="0.36206895" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.496614" weight="0.2857143" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4908313" weight="0.32583067" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49144253" weight="0.32583067" />
+      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.022573363" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -404,9 +413,8 @@
     <MESSAGE value="last minute changes2" />
     <MESSAGE value="added Auteur and Annee" />
     <MESSAGE value="added main" />
-    <MESSAGE value="debugging1" />
-    <MESSAGE value="more debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="more debugging" />
+    <MESSAGE value="more debugging2" />
+    <option name="LAST_COMMIT_MESSAGE" value="more debugging2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Integer.java" />
@@ -459,15 +467,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clavier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="503">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="520" column="52" selection-start-line="520" selection-start-column="52" selection-end-line="520" selection-end-column="52" />
+        <state relative-caret-position="3448">
+          <caret line="502" column="16" selection-start-line="502" selection-start-column="16" selection-end-line="502" selection-end-column="16" />
         </state>
       </provider>
     </entry>
