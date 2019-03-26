@@ -33,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="182" column="43" selection-start-line="182" selection-start-column="43" selection-end-line="182" selection-end-column="43" />
+            <state relative-caret-position="238">
+              <caret line="460" column="4" selection-start-line="460" selection-start-column="4" selection-end-line="460" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -42,7 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Clavier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
+            <state relative-caret-position="474">
               <caret line="115" selection-start-line="115" selection-end-line="115" />
             </state>
           </provider>
@@ -72,7 +72,6 @@
       <find>maxLength</find>
       <find>formatlivre</find>
       <find>validerChoix</find>
-      <find>validerRechercheCat</find>
       <find>rechercheTitre</find>
       <find>menuPrincipal</find>
       <find>valider</find>
@@ -82,6 +81,9 @@
       <find>requete</find>
       <find>maxlength</find>
       <find>rechercheEntree</find>
+      <find>validerRechercheCat</find>
+      <find>MSG_AUTEUR</find>
+      <find>MSG_PERIODE3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -97,8 +99,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1471" />
-    <option name="y" value="151" />
+    <option name="x" value="-1593" />
+    <option name="y" value="89" />
     <option name="width" value="1389" />
     <option name="height" value="945" />
   </component>
@@ -336,11 +338,19 @@
       <option name="project" value="LOCAL" />
       <updated>1553545841777</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="resolve rechercheAuteur3">
+      <created>1553547407002</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1553547407002</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="100" width="1389" height="945" extended-state="0" />
+    <frame x="-1593" y="89" width="1389" height="945" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.022573363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -351,14 +361,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960032" weight="0.32951945" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8389767" visible="true" weight="0.36206895" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.841234" weight="0.25738916" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8261851" visible="true" weight="0.25738916" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8291949" weight="0.47536945" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.16102332" side_tool="true" visible="true" weight="0.36206895" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.496614" weight="0.2857143" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4987775" weight="0.3279743" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1738149" side_tool="true" visible="true" weight="0.25738916" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.87509406" weight="0.2857143" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49144253" weight="0.32583067" />
       <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.022573363" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -429,19 +439,8 @@
     <MESSAGE value="more debugging2" />
     <MESSAGE value="resolve rechercheAuteur" />
     <MESSAGE value="resolve rechercheAuteur2" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve rechercheAuteur2" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ModuleRecherche.java</url>
-          <line>176</line>
-          <properties />
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="resolve rechercheAuteur3" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve rechercheAuteur3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Integer.java" />
@@ -494,15 +493,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Clavier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
+        <state relative-caret-position="474">
           <caret line="115" selection-start-line="115" selection-end-line="115" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModuleRecherche.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="182" column="43" selection-start-line="182" selection-start-column="43" selection-end-line="182" selection-end-column="43" />
+        <state relative-caret-position="238">
+          <caret line="460" column="4" selection-start-line="460" selection-start-column="4" selection-end-line="460" selection-end-column="4" />
         </state>
       </provider>
     </entry>
