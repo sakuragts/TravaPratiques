@@ -14,12 +14,24 @@ public class Bibliotheque {
 
     public final static int NBR_CASES = 4;
 
-    public Livre[] livres = new Livre[NBR_CASES];
-    public int nbrLivres = 0;
+    private Livre[] livres;
+    private int nbrLivres;
 
     //CONSTRUCTEURS
     public Bibliotheque() {
+        livres = new Livre[NBR_CASES];
+    }
 
+    public Bibliotheque(Livre[] lesLivres) {
+        livres = new Livre[NBR_CASES];
+        nbrLivres = 0;
+        Livre livre;
+
+        for (int i = 0; i < lesLivres.length; i++) {
+            livre = lesLivres[i];
+            ajouterLivre(livre);
+
+        }
     }
 
 
