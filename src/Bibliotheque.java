@@ -17,27 +17,49 @@ public class Bibliotheque {
     public Livre[] livres = new Livre[NBR_CASES];
     public int nbrLivres = 0;
 
+    //CONSTRUCTEURS
     public Bibliotheque() {
-        Livre[] biblio = this.livres;
+
     }
 
-    public boolean livreExiste(Livre[] biblio, Livre livre) {
+
+    //METHODES d'INSTANCE
+    public boolean livreExiste(Livre livre) {
         boolean livreExiste = false;
         int indexBiblio = 0;
 
-        while (!livreExiste && indexBiblio <= biblio.length ) {
-            if (biblio[indexBiblio].estEgal(livre)) {
-                livreExiste = true;
-            }
+        while (!livreExiste && indexBiblio < this.livres.length ) {
+            livreExiste = this.livres[indexBiblio].estEgal(livre);
             indexBiblio++;
         }
-
         return livreExiste;
     }
 
     public boolean ajouterLivre(Livre livre) {
-        boolean livreAjouter = false;
+        boolean livreAjouter = true;
 
+        if (livre == null || livreExiste(livre)) {
+            livreAjouter = false;
+        } else if (!livreExiste(livre) && nbrLivres == this.livres.length - 1) {
+            agrandirTab();
+            livres[nbrLivres] = livre;
+            nbrLivres++;
+        } else {
+            livres[nbrLivres] = livre;
+            nbrLivres++;
+        }
         return livreAjouter;
     }
+
+    //public boolean ajouterLivres(String titre, String auteur, int anneePub, int[] numCategories) {
+
+    //}
+
+    //AUTRES METHODES
+
+    private Livre[] agrandirTab () {
+        this.livres = new Livre[2 * this.livres.length];
+        return livres;
+    }
+
 }
