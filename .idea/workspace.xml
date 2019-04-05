@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/ModuleRecherche.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bibliotheque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bibliotheque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="-349">
+              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
               <folding>
                 <element signature="e#336#337#0" expanded="true" />
                 <element signature="e#371#372#0" expanded="true" />
@@ -37,15 +34,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UtilitaireTP2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -57,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Livre.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="300" selection-start-line="300" selection-end-line="300" />
+            <state relative-caret-position="306">
+              <caret line="200" column="34" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -104,6 +92,8 @@
       <find>MSG_PERIODE3</find>
       <find>validerChoixMin</find>
       <find>estEgal</find>
+      <find>ajouter</find>
+      <find>ajouterCat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,10 +110,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1563" />
-    <option name="y" value="81" />
-    <option name="width" value="1389" />
-    <option name="height" value="945" />
+    <option name="x" value="-1626" />
+    <option name="y" value="38" />
+    <option name="width" value="1566" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -401,13 +391,28 @@
       <option name="project" value="LOCAL" />
       <updated>1554414062804</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="tested and debugged current methods">
+      <created>1554483407687</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1554483407687</updated>
+    </task>
+    <task id="LOCAL-00026" summary="construct ajouterLivre">
+      <created>1554484334862</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1554484334862</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1563" y="81" width="1389" height="945" extended-state="0" />
+    <frame x="-1626" y="38" width="1566" height="1001" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12114371" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.11354582" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -417,15 +422,15 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960032" weight="0.32951945" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.82543266" weight="0.25738916" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.82769" visible="true" weight="0.36945814" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.82735723" visible="true" weight="0.30184332" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4987775" weight="0.3279743" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.17231001" side_tool="true" visible="true" weight="0.36945814" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.17264277" side_tool="true" visible="true" weight="0.30184332" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.8743416" weight="0.13916256" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49144253" weight="0.32583067" />
-      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.022573363" />
+      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.01992032" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -500,7 +505,9 @@
     <MESSAGE value="added empty constructor and 2 methods" />
     <MESSAGE value="did ajouterLivre" />
     <MESSAGE value="did ajouterLivre2" />
-    <option name="LAST_COMMIT_MESSAGE" value="did ajouterLivre2" />
+    <MESSAGE value="tested and debugged current methods" />
+    <MESSAGE value="construct ajouterLivre" />
+    <option name="LAST_COMMIT_MESSAGE" value="construct ajouterLivre" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -572,19 +579,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Livre.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="300" selection-start-line="300" selection-end-line="300" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="200" column="34" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -592,6 +588,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-349">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding>
+            <element signature="e#336#337#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
