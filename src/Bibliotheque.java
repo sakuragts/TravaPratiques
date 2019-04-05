@@ -65,9 +65,11 @@ public class Bibliotheque {
         return livreAjouter;
     }
 
-    //public boolean ajouterLivres(String titre, String auteur, int anneePub, int[] numCategories) {
+    /*public boolean ajouterLivre(String titre, String auteur, int anneePub, int[] numCategories) {
+        Livre livre;
 
-    //}
+        livre = new Livre(titre, auteur, anneePub);
+    }*/
 
     //AUTRES METHODES
 
