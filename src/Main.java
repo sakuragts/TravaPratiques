@@ -1,32 +1,14 @@
 public class Main {
 
     public static void main(String[] args) {
-        String biblio = UtilitaireTP2.lireBibliotheque();
+        Livre l1 = new Livre("Origine", "D. Brown ", 2017);
+        Livre l2 = new Livre("Romance et de si belles fiancailles", "M. H. Clark", 2018);
+        Livre l3 = new Livre("La fille du train", "P. Hawkins", 2015);
+        Livre l4 = new Livre("Le tricycle rouge", "V. Hauuy", 2018);
 
-        String choix = "";
-        String categorie = "";
-        String resultat = "";
-        String trouveCategorie;
-        String trouveCategorieSub;
-        int indexFinLigne;
-        int indexDebutLigne;
+        Livre [] livres = {l1, l2, l3, l4};
 
-        System.out.print(ModuleRecherche.MENU_CATEGORIES);
-        categorie = ModuleRecherche.validerCategories();
-
-
-
-        resultat = ModuleRecherche.rechercheCategorieConjonc("Origine\tD. Brown\t2017\tThriller\tPolicier\n" +
-                "Romance et de si belles fiancailles\tM. H. Clark\t2018\tthriller\tpolicier\tRomance\n" +
-                "La fille du train\tP. Hawkins\t2015\tPolicier\n" +
-                "Le tricycle rouge\tV. Hauuy\t2018\tDrame\tPolicier", categorie, 3);
-        //resultat = ModuleRecherche.rechecheCategorieDisjonc(biblio, categorie);
-        //resultat = ModuleRecherche.rechercheTitre(biblio, 0);
-        //resultat = ModuleRecherche.rechercheAuteur(biblio, 1);
-        //resultat = ModuleRecherche.rechercheAnnee(biblio, 2);
-        //resultat = ModuleRecherche.menuPrincipal();
-        System.out.println(resultat);
-
+        Bibliotheque b1 = new Bibliotheque(livres);
 
     }
 

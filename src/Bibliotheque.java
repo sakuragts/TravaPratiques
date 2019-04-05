@@ -41,7 +41,9 @@ public class Bibliotheque {
         int indexBiblio = 0;
 
         while (!livreExiste && indexBiblio < this.livres.length ) {
-            livreExiste = this.livres[indexBiblio].estEgal(livre);
+            if (this.livres[indexBiblio] != null) {
+                livreExiste = this.livres[indexBiblio].estEgal(livre);
+            }
             indexBiblio++;
         }
         return livreExiste;
@@ -70,7 +72,13 @@ public class Bibliotheque {
     //AUTRES METHODES
 
     private Livre[] agrandirTab () {
-        this.livres = new Livre[2 * this.livres.length];
+        Livre [] doubleTab;
+
+        doubleTab = new Livre[2 * this.livres.length];
+        for (int i = 0; i < this.livres.length; i++) {
+            doubleTab[i] = this.livres[i];
+        }
+        this.livres = doubleTab;
         return livres;
     }
 
