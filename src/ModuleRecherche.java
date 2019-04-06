@@ -172,7 +172,7 @@ public class ModuleRecherche {
             conjOuDisj = validerChoixMin(MSG_CATEGORIES2, ERR_CATEGORIES2,
                     OPTION_CONJ, OPTION_DISJ, minLength);
             if (conjOuDisj.equals("")) {
-                System.out.println(ERR_CATEGORIES);
+                System.out.println(ERR_CATEGORIES2);
             } else {
                 continuer = true;
             }
@@ -491,6 +491,9 @@ public class ModuleRecherche {
         return formateResultat;
     }
 
+
+    /*demande a l'utilisateur d'entrer un choix de categorie, verifie l'entree
+    et le cherche dans le document donne de facon disjonctive*/
     public static String mainRechercheDisjonc (String biblio, int tabVoulu) {
         String resultatRech = "";
         String choixCategories;
@@ -515,6 +518,8 @@ public class ModuleRecherche {
         return resultatRech;
     }
 
+    /*recherche la catagorie choisie par l'utilisateur et trouve la ligne
+    correspondante de facon conjonctive*/
     public static String rechercheCategorieConjonc(String biblio,
                                                    String choixCategories,
                                                    int tabVoulu) {
@@ -548,6 +553,8 @@ public class ModuleRecherche {
         return resultat;
     }
 
+    /*demande a l'utilisateur d'entrer un choix de categorie, verifie l'entree
+    et le cherche dans le document donne de facon conjonctive*/
     public static String mainRechecheConjonc (String biblio, int tabVoulu) {
         String resultatRech = "";
         String choixCategories;
@@ -572,6 +579,7 @@ public class ModuleRecherche {
         return resultatRech;
     }
 
+    /*demande a l'utilisateur d'entrer un titre er recherche l'entree dans le document donne*/
     public static String rechercheTitre (String biblio, int tabVoulu, int maxLength) {
         String entreeTitre;
         String rechercheTitre = "";
@@ -597,6 +605,8 @@ public class ModuleRecherche {
         return resultatRech;
     }
 
+    /*demande a l'utilisateur d'entrer un nom d'auteur qui sera ensuite
+    chercher a travers le document donne avec le nom d'auteur exact*/
     public static String rechercheAuteur (String biblio, int tabVoulu, int maxLength) {
         String entreeAuteur;
         String rechercheAuteur = "";
@@ -623,6 +633,8 @@ public class ModuleRecherche {
         return resultatRech;
     }
 
+    /*prends l'annee entree par l'utilisateur et la transforme en l'annee
+    suivante*/
     public static String anneeInt (String annee) {
         int anneeInt;
         String anneeStr = "";
@@ -633,6 +645,8 @@ public class ModuleRecherche {
         return anneeStr;
     }
 
+    /*prends en parametre l'annee du debut et l'annee de la fin de la periode
+     a chercher dans le document donnee*/
     public static String rechercheAnnee (String biblio, int tabVoulu,
                                          String anneeDebut, String anneeFin,
                                          int minLength) {
@@ -649,7 +663,7 @@ public class ModuleRecherche {
             intAnneeDebut = Integer.parseInt(anneeDebut);
             intAnneFin = Integer.parseInt(anneeFin);
             if (intAnneeDebut == intAnneFin) {
-                System.out.println("REQUETE : L'annee est " + anneeDebut);
+                System.out.println("\nREQUETE : L'annee est " + anneeDebut);
                 resultatRech = rechercheEntree(biblio, anneeDebut, tabVoulu,
                         false, true);
                 if (!resultatRech.isEmpty()) {
