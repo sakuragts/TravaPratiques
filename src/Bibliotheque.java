@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * I N F 1 1 2 0
  *
@@ -12,8 +14,10 @@
 
 public class Bibliotheque {
 
+    //CONSTANTES DE CLASSE
     public final static int NBR_CASES = 4;
 
+    //ATTRIBUTS D'INSTANCE
     private Livre[] livres;
     private int nbrLivres;
 
@@ -83,7 +87,7 @@ public class Bibliotheque {
     public Livre obtenirLivre (int iemeLivre ) {
         Livre livre = null;
 
-        if (iemeLivre < nbrLivres) {
+        if (iemeLivre >= 0 && iemeLivre < nbrLivres) {
             livre = this.livres[iemeLivre];
         }
         return livre;
@@ -92,9 +96,8 @@ public class Bibliotheque {
     public Livre supprimerLivre (int iemeLivre) {
         Livre livre = null;
 
-        if (iemeLivre < nbrLivres) {
+        if (iemeLivre > 0 && iemeLivre < nbrLivres) {
             livre = this.livres[iemeLivre];
-            this.livres[iemeLivre] = null;
             nbrLivres--;
             replacerBiblio(iemeLivre);
         }
@@ -103,11 +106,30 @@ public class Bibliotheque {
 
     public Livre[] rechercherParConjonctionDeCategories (int [] numCategories) {
         Livre [] livresConjonc = {};
-        Livre [] livres;
+        int indiceLivreConjonc = 0;
+        int tempCategorie;
+        int [] comptCat;
+        Livre tempLivre = null;
 
-        livres = rechercherParDisjonctionDeCategories(numCategories);
-        if (livres != null) {
-
+        if (numCategories != null && numCategories.length != 0) {
+            comptCat = new int[numCategories.length];
+            for (int i = 0; i < this.livres.length; i++) {
+                for (int j = 0; j < numCategories.length; j++) {
+                    tempLivre = this.livres[i];
+                    tempCategorie = numCategories[j];
+                    if (tempLivre.estClasseDans(tempCategorie)) {
+                        comptCat[j] = tempCategorie;
+                    }
+                }
+                if (Arrays.equals(comptCat, numCategories)) {
+                    livresConjonc = agrandirTab(livresConjonc);
+                    livresConjonc[indiceLivreConjonc] = tempLivre;
+                    indiceLivreConjonc++;
+                }
+                comptCat = new int[numCategories.length];
+            }
+        } else {
+            livresConjonc = this.livres;
         }
         return livresConjonc;
     }
@@ -115,13 +137,20 @@ public class Bibliotheque {
     public Livre[] rechercherParDisjonctionDeCategories (int [] numCategories) {
         Livre [] livresDisjonc = {};
         int indiceLivresDisjonc = 0;
+        int tempCategorie;
+        Livre tempLivre;
 
-        for (int i = 0; i < numCategories.length; i++) {
+        if (numCategories != null) {
             for (int j = 0; j < this.livres.length; j++) {
-                if (this.livres[j].estClasseDans(numCategories[i])) {
-                    livresDisjonc = agrandirTab(livresDisjonc);
-                    livresDisjonc[indiceLivresDisjonc] = this.livres[j];
-                    indiceLivresDisjonc++;
+                for (int i = 0; i < numCategories.length; i++) {
+                    tempCategorie = numCategories[i];
+                    tempLivre = this.livres[j];
+                    if (tempLivre.estClasseDans(tempCategorie) && !seRetrouveDans
+                            (livresDisjonc, tempLivre)) {
+                        livresDisjonc = agrandirTab(livresDisjonc);
+                        livresDisjonc[indiceLivresDisjonc] = tempLivre;
+                        indiceLivresDisjonc++;
+                    }
                 }
             }
         }
@@ -129,7 +158,6 @@ public class Bibliotheque {
     }
 
     //METHODES PRIVEES
-
     private Livre[] agrandirTab (Livre [] tab) {
         Livre [] agrandirTab;
 
@@ -141,12 +169,30 @@ public class Bibliotheque {
     }
 
     private Livre[] replacerBiblio (int indiceLivre) {
-        while (this.livres[indiceLivre + 1] != null) {
-            this.livres[indiceLivre] = this.livres[indiceLivre + 1];
-            indiceLivre++;
+        for (int i = indiceLivre; i < nbrLivres; i++) {
+            this.livres[i] = this.livres[i + 1];
+            indiceLivre = i;
         }
-        this.livres[indiceLivre] = null;
+        if (indiceLivre < this.livres.length - 1) {
+            this.livres[indiceLivre] = this.livres[indiceLivre + 1];
+            this.livres[indiceLivre + 1] = null;
+        } else {
+            this.livres[indiceLivre] = null;
+        }
         return this.livres;
+    }
+
+    private boolean seRetrouveDans (Livre [] livres, Livre livre) {
+        boolean estDans = false;
+        int indexLivre = 0;
+
+        while (!estDans && indexLivre < livres.length) {
+            if (livres[indexLivre] != null) {
+                estDans = livres[indexLivre].estEgal(livre);
+            }
+            indexLivre++;
+        }
+        return  estDans;
     }
 
 }

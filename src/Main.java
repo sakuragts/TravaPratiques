@@ -7,28 +7,58 @@ public class Main {
         Livre l4 = new Livre("Le tricycle rouge", "V. Hauuy", 2018);
         Livre l5;
 
-        int [] categorie = new int[2];
-        categorie[0] = 2;
-        categorie[1] = 3;
-        int [] cat1 = new int[2];
-        cat1[0] = 0;
-        cat1[1] = 2;
-        int [] cat2 = new int[3];
-        cat2[0] = 0;
-        cat2[1] = 4;
-        cat2[2] = 2;
+        /*
+           public final static int CAT_SCIENCE_FICTION = 0;
+           public final static int CAT_ROMANCE = 1;
+           public final static int CAT_THRILLER = 2;
+           public final static int CAT_POLICIER = 3;
+           public final static int CAT_HUMOUR = 4;
+           public final static int CAT_DRAME = 5;
+         */
 
-        int [] findCat = new int[2];
-        findCat[0] = 2;
-        findCat[1] = 3;
+        int [] categorie = {2, 3};
+        int [] cat1 = {0, 2};
+        int [] cat2 = {0, 4, 2};
+        int [] cat3 = {1, 3, 4};
+        int [] cat4 = {4, 1};
+        int [] cat5 = {4};
+        int [] cat6 = {4, 3};
+
+        int [] findCat = {};
+        String [] test = new String[3];
 
         Livre [] livres = {l1, l2, l3, l4};
 
         Bibliotheque b1 = new Bibliotheque(livres);
         b1.ajouterLivre("Double piege", "H. Coben", 2018, categorie);
+        b1.ajouterLivre("Double piege", "H. Coben", 2018, categorie);
         b1.ajouterLivre("La mort n'existe pas", "D. Eleonori", 2018, cat1);
         b1.ajouterLivre("Le fils cache de la lune", "E. Nataf", 2018, cat2 );
-        b1.rechercherParDisjonctionDeCategories(findCat);
+        b1.ajouterLivre("Les neuf vies de Stephanie Plum", "J. Evanovich", 2016, cat3);
+        b1.ajouterLivre("L'inoubliable ete des jeux de seduction","V. Auclair", 2016, cat4);
+        b1.ajouterLivre("La petulante ascension de Benjamin Fabre", "F. Lehman", 2014, cat5);
+        b1.ajouterLivre("Rien ne va plus chez les Spellman!", "L. Lutz", 2018, cat6);
+        Livre [] recherche = b1.rechercherParConjonctionDeCategories(findCat);
+
+        for (int i = 0; i < recherche.length; i++) {
+            System.out.println(recherche[i]);
+        }
+
+        System.out.println("------------------------------\n"+
+                "\n\n");
+        b1.supprimerLivre(2);
+        recherche = b1.rechercherParConjonctionDeCategories(findCat);
+
+
+        for (int i = 0; i < recherche.length; i++) {
+            System.out.println(recherche[i]);
+        }
+        System.out.println("------------------------------\n"+
+                "\n\n");
+
+        Livre livreObtenu = b1.obtenirLivre(0);
+        System.out.println(livreObtenu);
+
 
     }
 
