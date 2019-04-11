@@ -6,7 +6,7 @@ import java.util.Arrays;
  *
  *
  * @author Ingrid Blemur
- * @version 01/04/2019
+ * @version 11/04/2019
  *
  * BLEI08547903
  * blemur.ingrid@courrier.uqam.ca
@@ -15,17 +15,29 @@ import java.util.Arrays;
 public class Bibliotheque {
 
     //CONSTANTES DE CLASSE
-    public final static int NBR_CASES = 4;
+    public final static int NBR_CASES = 4; //nombre de cases du tableau a creer
 
     //ATTRIBUTS D'INSTANCE
-    private Livre[] livres;
-    private int nbrLivres;
+    private Livre[] livres; //tableau de la bibliotheque
+    private int nbrLivres; //compteur pour savoir le nombre de livres dans la
+                          // bibliotheque
 
     //CONSTRUCTEURS
+
+    /**
+     * Construit une bibliotheque vide et ne prends aucun parametres.
+     */
     public Bibliotheque() {
         this.livres = new Livre[NBR_CASES];
     }
 
+    /**
+     *Construit une bibliotheque et la rempli avec une collection de livres donnne
+     * en parametre.
+     *
+     * @param lesLivres tableau de livres crees et valides par la classe d'objet
+     *                  Livre
+     */
     public Bibliotheque(Livre[] lesLivres) {
         this.livres = new Livre[NBR_CASES];
         nbrLivres = 0;
@@ -40,6 +52,15 @@ public class Bibliotheque {
 
 
     //METHODES PUBLIQUES D'INSTANCE
+
+    /**
+     * Teste si le livre ajoute en parametre existe deja dans la
+     * bibliotheque. Cette methode utilise la methode de la classe Livre estEgal
+     * pour verifier par le titre, l'auteur et l'annee de publication.
+     *
+     * @param livre Un objet de type Livre valide
+     * @return true si le livre existe dans la bibliotheque
+     */
     public boolean livreExiste(Livre livre) {
         boolean livreExiste = false;
         int indexBiblio = 0;
@@ -53,6 +74,14 @@ public class Bibliotheque {
         return livreExiste;
     }
 
+    /**
+     * Teste si le livre donne en parametre existe deja dans la bibliotheque.
+     * Le livre est ajoute seulement si le livre n'existe pas dans la
+     * bibliotheque.
+     *
+     * @param livre Un objet de type Livre valide
+     * @return true si le livre a bien ete ajoute
+     */
     public boolean ajouterLivre(Livre livre) {
         boolean livreAjouter = true;
 
@@ -69,11 +98,23 @@ public class Bibliotheque {
         return livreAjouter;
     }
 
+    /**
+     * Construit un nouveau livre avec les parametres donne en utilisant la
+     * classe Livre pour valider les parametres. Ensuite, ajoute les
+     * categories ajoutes en parametre a l'objet livre. Par la suite, ajoute
+     * le livre dans la bibliotheque.
+     *
+     * @param titre qui sera  valide par la classe Livre
+     * @param auteur qui sera valide par la classe Livre
+     * @param anneePub qui sera valide par la classe Livre
+     * @param numCategories qui sera valide par la classe Livre
+     * @return true si le livre est ajoute a la bibliotheque
+     */
     public boolean ajouterLivre(String titre, String auteur, int anneePub,
                                 int[] numCategories) {
         Livre livre;
         int categorie;
-        boolean livreAjouter = false;
+        boolean livreAjouter;
 
         livre = new Livre(titre, auteur, anneePub);
         for (int i = 0; i < numCategories.length; i++) {
@@ -84,6 +125,13 @@ public class Bibliotheque {
         return livreAjouter;
     }
 
+    /**
+     * Donne le livre a la position donne en parametre
+     *
+     * @param iemeLivre position du livre voulu dans la bibliotheque
+     * @return le livre a la position donne en parametre, retourne null si la
+     * position n'est pas valide
+     */
     public Livre obtenirLivre (int iemeLivre ) {
         Livre livre = null;
 
@@ -93,6 +141,15 @@ public class Bibliotheque {
         return livre;
     }
 
+    /**
+     * Prends et donne le livre a la position prise en parametre et ecrase
+     * celui-ci et deplacant les livres a partir de la position du livre
+     * jusqu'a la fin.
+     *
+     * @param iemeLivre position du livre a suprimer
+     * @return le livre qui a ete suprimer. Retourne null si la position
+     * n'est pas valide
+     */
     public Livre supprimerLivre (int iemeLivre) {
         Livre livre = null;
 
@@ -104,6 +161,14 @@ public class Bibliotheque {
         return livre;
     }
 
+    /**
+     * Recherche dans la bibliotheque par conjonction et donne les livres
+     * correspondant aux categories donnees en parametre
+     *
+     * @param numCategories tableau de categories a chercher
+     * @return tableau des resultat de la recherche par conjonction. Retourne
+     * la bibliotheque au complet si le parametre est null ou est vide
+     */
     public Livre[] rechercherParConjonctionDeCategories (int [] numCategories) {
         Livre [] livresConjonc = {};
         int indiceLivreConjonc = 0;
@@ -134,6 +199,14 @@ public class Bibliotheque {
         return livresConjonc;
     }
 
+    /**
+     * Recherche dans la bibliotheque par disjonction et donne le resultat
+     * correspondant aux livres avec les categories donnees en parametre
+     *
+     * @param numCategories tableau de categories a chercher
+     * @return tableau des resultats de la recherche. Ne retourne aucun livre
+     * si le parametre est null ou vide.
+     */
     public Livre[] rechercherParDisjonctionDeCategories (int [] numCategories) {
         Livre [] livresDisjonc = {};
         int indiceLivresDisjonc = 0;
@@ -158,6 +231,13 @@ public class Bibliotheque {
     }
 
     //METHODES PRIVEES
+
+    /**
+     * Agrandit le tableau donne en parametre de 1.
+     *
+     * @param tab tableau a agrandir
+     * @return tableau agrandi
+     */
     private Livre[] agrandirTab (Livre [] tab) {
         Livre [] agrandirTab;
 
@@ -168,6 +248,13 @@ public class Bibliotheque {
         return agrandirTab;
     }
 
+    /**
+     * Replace les livres dans la bibliotheque a partir de l'indice donne en
+     * parametre.
+     *
+     * @param indiceLivre indice a partir duquel l'on replace les livres
+     * @return la bibliotheque avec les livres replace
+     */
     private Livre[] replacerBiblio (int indiceLivre) {
         for (int i = indiceLivre; i < nbrLivres; i++) {
             this.livres[i] = this.livres[i + 1];
@@ -182,6 +269,14 @@ public class Bibliotheque {
         return this.livres;
     }
 
+    /**
+     * Cherche si un livre donne en parametre se retrouve dans le tableau
+     * donne en parametre
+     *
+     * @param livres tableau de livres a verifier
+     * @param livre que l'on veut verifier s'il se retrouve dans le tableau
+     * @return true si le livre se retrouve dans le tableau a verifier
+     */
     private boolean seRetrouveDans (Livre [] livres, Livre livre) {
         boolean estDans = false;
         int indexLivre = 0;

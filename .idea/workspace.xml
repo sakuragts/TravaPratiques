@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TravaPratiques/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bibliotheque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bibliotheque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Livre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,24 +20,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+            <state relative-caret-position="374">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
               <folding>
-                <element signature="e#311#312#0" expanded="true" />
-                <element signature="e#361#362#0" expanded="true" />
+                <element signature="e#416#417#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -48,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Livre.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-106">
-              <caret line="246" selection-start-line="246" selection-end-line="246" />
+            <state relative-caret-position="4536">
+              <caret line="294" column="24" selection-start-line="294" selection-start-column="18" selection-end-line="294" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -99,6 +96,8 @@
       <find>categories</find>
       <find>existe</find>
       <find>estEgal</find>
+      <find>titreValide</find>
+      <find>estEga</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,8 +109,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/ModuleRecherche.java" />
         <option value="$PROJECT_DIR$/src/Livre.java" />
-        <option value="$PROJECT_DIR$/src/Bibliotheque.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Bibliotheque.java" />
       </list>
     </option>
   </component>
@@ -414,11 +413,19 @@
       <option name="project" value="LOCAL" />
       <updated>1554484334862</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fully tested, add comments">
+      <created>1554931279103</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1554931279103</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1668" y="46" width="1566" height="1001" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.11354582" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -490,7 +497,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added comments" />
     <MESSAGE value="Merge branch 'master' of https://github.com/sakuragts/TravaPratiques&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/Main.java&#10;#&#9;src/ModuleRecherche.java" />
     <MESSAGE value="Good version" />
     <MESSAGE value="Merge branch 'master' of https://github.com/sakuragts/TravaPratiques&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
@@ -515,7 +521,8 @@
     <MESSAGE value="did ajouterLivre2" />
     <MESSAGE value="tested and debugged current methods" />
     <MESSAGE value="construct ajouterLivre" />
-    <option name="LAST_COMMIT_MESSAGE" value="construct ajouterLivre" />
+    <MESSAGE value="fully tested, add comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="fully tested, add comments" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Integer.java" />
@@ -564,28 +571,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Livre.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="246" selection-start-line="246" selection-end-line="246" />
+        <state relative-caret-position="4536">
+          <caret line="294" column="24" selection-start-line="294" selection-start-column="18" selection-end-line="294" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+        <state relative-caret-position="374">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding>
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
         </state>
       </provider>
     </entry>
