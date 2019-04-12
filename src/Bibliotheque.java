@@ -6,7 +6,7 @@ import java.util.Arrays;
  *
  *
  * @author Ingrid Blemur
- * @version 11/04/2019
+ * @version 12/04/2019
  *
  * BLEI08547903
  * blemur.ingrid@courrier.uqam.ca
@@ -48,6 +48,17 @@ public class Bibliotheque {
             ajouterLivre(livre);
 
         }
+    }
+
+    //GETTER
+
+    /**
+     * Permet d'obtenir le nombre de livres se retrouvant dans la bibliotheque
+     *
+     * @return le nombre de livres
+     */
+    public int getNbrLivres () {
+        return nbrLivres;
     }
 
 

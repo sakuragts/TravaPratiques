@@ -5,7 +5,7 @@ public class Main {
         Livre l2 = new Livre("Romance et de si belles fiancailles", "M. H. Clark", 2018);
         Livre l3 = new Livre("La fille du train", "P. Hawkins", 2015);
         Livre l4 = new Livre("Le tricycle rouge", "V. Hauuy", 2018);
-        Livre l5;
+
 
         /*
            public final static int CAT_SCIENCE_FICTION = 0;
@@ -23,10 +23,19 @@ public class Main {
         int [] cat4 = {4, 1};
         int [] cat5 = {4};
         int [] cat6 = {4, 3};
+        int [] cat7 = {4};
+        int [] cat8 = {3, 1, 4};
 
         int [] findCat = {};
-        String [] test = new String[3];
 
+        l1.ajouterCategorie(2);
+        l1.ajouterCategorie(3);
+        l2.ajouterCategorie(2);
+        l2.ajouterCategorie(3);
+        l2.ajouterCategorie(1);
+        l3.ajouterCategorie(3);
+        l4.ajouterCategorie(5);
+        l4.ajouterCategorie(3);
         Livre [] livres = {l1, l2, l3, l4};
 
         Bibliotheque b1 = new Bibliotheque(livres);
@@ -38,6 +47,8 @@ public class Main {
         b1.ajouterLivre("L'inoubliable ete des jeux de seduction","V. Auclair", 2016, cat4);
         b1.ajouterLivre("La petulante ascension de Benjamin Fabre", "F. Lehman", 2014, cat5);
         b1.ajouterLivre("Rien ne va plus chez les Spellman!", "L. Lutz", 2018, cat6);
+        b1.ajouterLivre("Une vie inutile", "S. Paquet", 2012, cat7);
+        b1.ajouterLivre("Dix-sept ans de malheur", "J. Evanovich", 2017, cat8);
         Livre [] recherche = b1.rechercherParConjonctionDeCategories(findCat);
 
         for (int i = 0; i < recherche.length; i++) {
@@ -46,20 +57,14 @@ public class Main {
 
         System.out.println("------------------------------\n"+
                 "\n\n");
-        b1.supprimerLivre(2);
-        recherche = b1.rechercherParConjonctionDeCategories(findCat);
+
+        l4.setTitre("La bicyclette jaune");
+
+        Livre livre = b1.obtenirLivre(3);
+        System.out.println(livre);
 
 
-        for (int i = 0; i < recherche.length; i++) {
-            System.out.println(recherche[i]);
-        }
-        System.out.println("------------------------------\n"+
-                "\n\n");
-
-        Livre livreObtenu = b1.obtenirLivre(0);
-        System.out.println(livreObtenu);
-
-
+        System.out.println(b1.getNbrLivres());
     }
 
 

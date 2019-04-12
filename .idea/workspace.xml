@@ -7,6 +7,7 @@
     <list default="true" id="2840a9a6-79f8-49a2-ba13-f974789aba6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bibliotheque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bibliotheque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,24 +21,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state relative-caret-position="-374">
+              <caret line="163" column="27" lean-forward="true" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
               <folding>
                 <element signature="e#416#417#0" expanded="true" />
                 <element signature="e#466#467#0" expanded="true" />
+                <element signature="e#1288#1289#0" expanded="true" />
+                <element signature="e#1320#1321#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            <state relative-caret-position="442">
+              <caret line="50" column="79" lean-forward="true" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -45,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Livre.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4536">
-              <caret line="294" column="24" selection-start-line="294" selection-start-column="18" selection-end-line="294" selection-end-column="24" />
+            <state relative-caret-position="595">
+              <caret line="141" column="23" lean-forward="true" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -98,6 +101,7 @@
       <find>estEgal</find>
       <find>titreValide</find>
       <find>estEga</find>
+      <find>agrandirTabNumCat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,14 +113,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/ModuleRecherche.java" />
         <option value="$PROJECT_DIR$/src/Livre.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Bibliotheque.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1668" />
-    <option name="y" value="46" />
+    <option name="x" value="-1632" />
+    <option name="y" value="36" />
     <option name="width" value="1566" />
     <option name="height" value="1001" />
   </component>
@@ -420,11 +424,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554931279103</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="final version">
+      <created>1555005174555</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1555005174555</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1668" y="46" width="1566" height="1001" extended-state="0" />
+    <frame x="-1632" y="36" width="1566" height="1001" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.11354582" />
@@ -436,13 +447,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960032" weight="0.32951945" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.81739706" weight="0.3329493" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.8187251" visible="true" weight="0.2730415" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.81673306" visible="true" weight="0.312212" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8187251" weight="0.40092167" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4987775" weight="0.3279743" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.1812749" side_tool="true" visible="true" weight="0.2730415" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.18326694" side_tool="true" visible="true" weight="0.312212" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.8743416" weight="0.13916256" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4906054" weight="0.3251029" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -497,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge branch 'master' of https://github.com/sakuragts/TravaPratiques&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/Main.java&#10;#&#9;src/ModuleRecherche.java" />
     <MESSAGE value="Good version" />
     <MESSAGE value="Merge branch 'master' of https://github.com/sakuragts/TravaPratiques&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="add constantes menu + categorie" />
@@ -522,7 +532,8 @@
     <MESSAGE value="tested and debugged current methods" />
     <MESSAGE value="construct ajouterLivre" />
     <MESSAGE value="fully tested, add comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="fully tested, add comments" />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$PROJECT_DIR$/../Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Integer.java" />
@@ -571,28 +582,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Livre.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4536">
-          <caret line="294" column="24" selection-start-line="294" selection-start-column="18" selection-end-line="294" selection-end-column="24" />
+        <state relative-caret-position="595">
+          <caret line="141" column="23" lean-forward="true" selection-start-line="141" selection-start-column="23" selection-end-line="141" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Bibliotheque.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        <state relative-caret-position="-374">
+          <caret line="163" column="27" lean-forward="true" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
           <folding>
             <element signature="e#416#417#0" expanded="true" />
             <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#1288#1289#0" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="50" column="79" lean-forward="true" selection-start-line="50" selection-start-column="79" selection-end-line="50" selection-end-column="79" />
         </state>
       </provider>
     </entry>
