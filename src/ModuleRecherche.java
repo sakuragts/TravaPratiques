@@ -6,7 +6,7 @@
  * @author Ingrid Blemur
  * @version 26/03/2019
  *
- * BLEI08547903
+ *
  * blemur.ingrid@courrier.uqam.ca
  */
 
