@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author Ingrid Blemur
  * @version 12/04/2019
  *
- * BLEI08547903
+ *
  * blemur.ingrid@courrier.uqam.ca
  */
 
