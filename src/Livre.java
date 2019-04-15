@@ -1,4 +1,5 @@
 
+
 /**
  * Cette classe modelise un livre. Chaque livre contient les informations
  * suivantes : 
@@ -35,6 +36,7 @@
  * @author Melanie Lord
  * @version 20 mars 2019
  */
+
 public class Livre {
 
    //-----------------------------
@@ -42,7 +44,12 @@ public class Livre {
    //-----------------------------
    
    //Numeros des categories pouvant etre associees a un livre
-
+   public final static int CAT_SCIENCE_FICTION = 0;
+   public final static int CAT_ROMANCE = 1;
+   public final static int CAT_THRILLER = 2;
+   public final static int CAT_POLICIER = 3;
+   public final static int CAT_HUMOUR = 4;
+   public final static int CAT_DRAME = 5;
    
    //Noms des categories pouvant etre associees a un livre
    public final static String [] CATEGORIES = {"science-fiction", "romance", 

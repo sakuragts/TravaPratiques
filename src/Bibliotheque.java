@@ -6,10 +6,10 @@ import java.util.Arrays;
  *
  *
  * @author Ingrid Blemur
- * @version 12/04/2019
+ * @version 15/04/2019
  *
- *
- * blemur.ingrid@courrier.uqam.ca
+ *Code permanent: BLEI08547903
+ * Courriel: blemur.ingrid@courrier.uqam.ca
  */
 
 public class Bibliotheque {
@@ -77,7 +77,7 @@ public class Bibliotheque {
         int indexBiblio = 0;
 
         while (!livreExiste && indexBiblio < this.livres.length ) {
-            if (this.livres[indexBiblio] != null) {
+            if (this.livres[indexBiblio] != null && livre != null) {
                 livreExiste = this.livres[indexBiblio].estEgal(livre);
             }
             indexBiblio++;
@@ -164,7 +164,7 @@ public class Bibliotheque {
     public Livre supprimerLivre (int iemeLivre) {
         Livre livre = null;
 
-        if (iemeLivre > 0 && iemeLivre < nbrLivres) {
+        if (iemeLivre >= 0 && iemeLivre < nbrLivres) {
             livre = this.livres[iemeLivre];
             nbrLivres--;
             replacerBiblio(iemeLivre);
@@ -181,31 +181,28 @@ public class Bibliotheque {
      * la bibliotheque au complet si le parametre est null ou est vide
      */
     public Livre[] rechercherParConjonctionDeCategories (int [] numCategories) {
-        Livre [] livresConjonc = {};
-        int indiceLivreConjonc = 0;
-        int tempCategorie;
-        int [] comptCat;
-        Livre tempLivre = null;
+        Livre[] livresConjonc = {};
+        int indexLivreConjonc = 0;
+        int[] comptCat;
+        Livre tempLivre;
 
         if (numCategories != null && numCategories.length != 0) {
             comptCat = new int[numCategories.length];
             for (int i = 0; i < this.livres.length; i++) {
-                for (int j = 0; j < numCategories.length; j++) {
-                    tempLivre = this.livres[i];
-                    tempCategorie = numCategories[j];
-                    if (tempLivre.estClasseDans(tempCategorie)) {
-                        comptCat[j] = tempCategorie;
-                    }
-                }
-                if (Arrays.equals(comptCat, numCategories)) {
+                tempLivre = this.livres[i];
+
+                if (tempLivre != null && rechercheLivreParCat(comptCat,
+                        numCategories,
+                        tempLivre) && valideLivreConjonc(comptCat, numCategories)) {
                     livresConjonc = agrandirTab(livresConjonc);
-                    livresConjonc[indiceLivreConjonc] = tempLivre;
-                    indiceLivreConjonc++;
+                    livresConjonc[indexLivreConjonc] = tempLivre;
+                    indexLivreConjonc++;
                 }
                 comptCat = new int[numCategories.length];
             }
+
         } else {
-            livresConjonc = this.livres;
+            livresConjonc = livreConjoncNonValide();
         }
         return livresConjonc;
     }
@@ -221,22 +218,23 @@ public class Bibliotheque {
     public Livre[] rechercherParDisjonctionDeCategories (int [] numCategories) {
         Livre [] livresDisjonc = {};
         int indiceLivresDisjonc = 0;
-        int tempCategorie;
+        int [] comptCat;
         Livre tempLivre;
 
         if (numCategories != null) {
             for (int j = 0; j < this.livres.length; j++) {
-                for (int i = 0; i < numCategories.length; i++) {
-                    tempCategorie = numCategories[i];
-                    tempLivre = this.livres[j];
-                    if (tempLivre.estClasseDans(tempCategorie) && !seRetrouveDans
-                            (livresDisjonc, tempLivre)) {
-                        livresDisjonc = agrandirTab(livresDisjonc);
-                        livresDisjonc[indiceLivresDisjonc] = tempLivre;
-                        indiceLivresDisjonc++;
-                    }
+                comptCat = new int[numCategories.length];
+                tempLivre = this.livres[j];
+                if (tempLivre != null && rechercheLivreParCat(comptCat,
+                        numCategories,
+                        tempLivre ) && !seRetrouveDans
+                        (livresDisjonc, tempLivre)) {
+                    livresDisjonc = agrandirTab(livresDisjonc);
+                    livresDisjonc[indiceLivresDisjonc] = tempLivre;
+                    indiceLivresDisjonc++;
                 }
             }
+
         }
         return livresDisjonc;
     }
@@ -301,4 +299,64 @@ public class Bibliotheque {
         return  estDans;
     }
 
+    /**
+     * Verifie si les categories du livre et des categories donnees sont egales
+     *
+     * @param comptCat Categories du livre
+     * @param numCategories Categories recherchees
+     * @return
+     */
+    private boolean valideLivreConjonc (int [] comptCat,
+                                            int [] numCategories) {
+        boolean livreValide = false;
+
+        if (numCategories != null) {
+            livreValide = (Arrays.equals(comptCat, numCategories));
+        }
+        return livreValide;
+    }
+
+    /**
+     * Retourne la bibliotheque this.livre lorsque la recherche conjonctive
+     * est non valide
+     *
+     * @return la bibliotheque avec les valeurs de this.livre
+     */
+    private Livre [] livreConjoncNonValide () {
+        int indexBiblio = 0;
+        Livre [] livresConjonc = {};
+
+        while (indexBiblio < nbrLivres && this.livres[indexBiblio] != null) {
+            livresConjonc = agrandirTab(livresConjonc);
+            livresConjonc[indexBiblio] = this.livres[indexBiblio];
+            indexBiblio++;
+        }
+        return livresConjonc;
+    }
+
+    /**
+     * Recherche le livre donne en parametre par categories donnees
+     *
+     * @param comptCat Categories du livre
+     * @param numCategories Categories donnees
+     * @param livre Livre a rechercher
+     * @return
+     */
+    private boolean rechercheLivreParCat (int [] comptCat,
+                                          int [] numCategories, Livre livre) {
+        int tempCategorie;
+        boolean livreValide = false;
+
+        for (int i = 0; i < numCategories.length; i++) {
+            tempCategorie = numCategories[i];
+
+            if (livre != null && Livre.numCatValide(tempCategorie) &&
+                    livre.estClasseDans(tempCategorie)) {
+                livreValide = true;
+                comptCat[i] = numCategories[i];
+
+            }
+        }
+        return livreValide;
+    }
 }
